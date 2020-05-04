@@ -11,7 +11,7 @@ Navigator:
 
 ---
 
-# Lab 8: Use distributed Logging
+# Lab 7: Deploy Service to OpenShift
 
 to be done
 
