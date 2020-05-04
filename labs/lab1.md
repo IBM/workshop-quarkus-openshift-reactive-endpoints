@@ -1,12 +1,13 @@
 Navigator:
-* [Workshop Description](https://nheidloff.github.io/workshop-quarkus-openshift-reactive-messaging/)
+* [Workshop Description](https://nheidloff.github.io/workshop-quarkus-openshift-reactive-endpoints/)
 * Lab 1: Create your Cloud Environment
 * Lab 2: [Deploy Kafka via Script](lab2.md)
 * Lab 3: [Deploy Postgres via Operator](lab3.md)
 * Lab 4: [Deploy Sample Application](lab4.md)
-* Lab 5: [Reactive Messaging with MicroProfile](lab5.md)
-* Lab 6: [Server Sent Events](lab6.md)
-* Lab 7: [Vert.x Event Bus](lab7.md)
+* Lab 5: [Develop reactive Endpoints](lab5.md)
+* Lab 6: [Invoke Endpoints reactively](lab6.md)
+* Lab 7: [Deploy Service to OpenShift](lab7.md)
+* Lab 8 (optional): [Use distributed Logging](lab8.md)
 
 ---
 
