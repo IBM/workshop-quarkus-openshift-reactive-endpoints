@@ -22,6 +22,8 @@ import java.util.ArrayList;
 @Path("/articles")
 public class ArticleResource {
     
+    /*
+    // Lab 5
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public CompletionStage<Response> getArticles() {
@@ -39,6 +41,35 @@ public class ArticleResource {
                                 .collect(JsonCollectors.toJsonArray());
             
             //if (true) throw new InvalidInputParameter();
+            
+            return Response.ok(articlesAsJson).build();
+        }).exceptionally(throwable -> {
+            if (throwable.getCause().toString().equals(InvalidInputParameter.class.getName()))
+                return Response.status(Response.Status.BAD_REQUEST).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }).whenComplete((response, e) -> {
+            future.complete(response);
+        });
+        return future;
+    }
+    */
+
+    // Lab 6
+    @Inject
+    ArticlesDataAccess articlesDataAccess;
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompletionStage<Response> getArticles() {
+        
+        CompletableFuture<Response> future = new CompletableFuture<Response>();        
+
+        articlesDataAccess.getArticlesReactive(10).thenApply(articles -> {
+            JsonArray articlesAsJson;
+            articlesAsJson = articles
+                                .stream()
+                                .map(article -> createJsonArticle(article))
+                                .collect(JsonCollectors.toJsonArray());            
             
             return Response.ok(articlesAsJson).build();
         }).exceptionally(throwable -> {
