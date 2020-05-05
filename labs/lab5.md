@@ -255,6 +255,46 @@ public CompletionStage<Response> getArticles() {
     }
 ```
 
+### Step 6: Understand Exception Handling
+
+In the same way exceptions and errors can occur for synchronous code, they can happen for asychronous code as well.
+
+However the way to handle them is quite different. When invoking asynchronous methods exceptions cannot be handled via 'catch' as usual. Instead the method 'exceptionally' of the interface CompletionStage is used.
+
+The code below should give you an idea how to handle exceptions. To find out more read the blog [Chained asynchronous Invocations and Error Handling](http://heidloff.net/article/developing-reactive-rest-apis-with-quarkus/).
+
+If you want to try out 'exceptionally' uncomment the line where the InvalidInputParameter exception is thrown.
+
+```
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompletionStage<Response> getArticles() {
+        
+        CompletableFuture<Response> future = new CompletableFuture<Response>();        
+        CompletableFuture.supplyAsync(() -> {
+            List<Article> articles = getSampleArticles();            
+            return articles;
+        }).thenApply(articles -> {
+            JsonArray articlesAsJson;
+            articlesAsJson = articles
+                                .stream()
+                                .map(article -> createJsonArticle(article))
+                                .collect(JsonCollectors.toJsonArray());
+            
+            //if (true) throw new InvalidInputParameter();
+            
+            return Response.ok(articlesAsJson).build();
+        }).exceptionally(throwable -> {
+            if (throwable.getCause().toString().equals(InvalidInputParameter.class.getName()))
+                return Response.status(Response.Status.BAD_REQUEST).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }).whenComplete((response, e) -> {
+            future.complete(response);
+        });
+        return future;
+    }
+```
+
 ---
 
 __Continue with [Lab 6: Invoke Endpoints reactively](lab6.md)__
