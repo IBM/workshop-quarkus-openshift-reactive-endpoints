@@ -93,8 +93,6 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 
 5. In Lab 4 "[Deploying Sample Application](lab4.md)" you have deployed an instance of the articles-reactive. We will check LogDNA for output from this instance. Execute the following commands in the IBM Cloud Shell:
 
-articles-reactive-cloud-native-starter.codeready-workspaces-16067cc6e7c2e68ea20123417ed879b8-0000.eu-de.containers.appdomain.cloud
-
    ```
    $ oc project <your project>
    $ watch curl -X GET "http://$(oc get route articles-reactive -o jsonpath={.spec.host})/v2/articles?amount=10" -H "accept: application/json"  
