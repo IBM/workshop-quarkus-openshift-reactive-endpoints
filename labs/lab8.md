@@ -40,44 +40,43 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 
 1. Create an "IBM Log Analysis with LogDNA" instance
 
-    * Select "Logging" on the left
+   * Select "Create" tab
+
+   * Leave the pre-selected region
+
+   * Leave the default plan  with the pricing "Free"
+
+   * Give the service a name "logdna-openshift-reactive"
    
-   * Click "Create a logging instance"
+   * Give the tag "reactive"
+
+   * Click "Create"
 
    ![ldna-2](../images/ldna-2.png)
 
    * Leave the default name or choose your own ("logdna-openshift")
 
-1. In the next dialog:
+## Step 2 - Configure the LogDNA log sources
 
-   * Select a region close to your OpenShift cluster
-
-   * Leave the "Lite" pricing plan but take note of the other plans; those are the full featured plans. But you need a paid account to use those. We will use Lite for this lab.
-
-   * Scroll down a bit
-
-   * Leave the service name and the "Default" resource group
-
-   * Click "Create" at the bottom of the dialog.
+1. Select "Edit log sources"
 
    ![ldna-3](../images/ldna-3.png)
 
   
-1. Click on "Edit log sources"
+1. Select the "OpenShift" tab. Copy, paste, and execute the commands into your IBM Cloud Shell:
 
    ![ldna-4](../images/ldna-4.png)
 
-1. Select the "OpenShift" tab. Copy, paste, and execute the commands into your IBM Cloud Shell:
-
-   ![ldna-5](../images/ldna-5.png)
 
 1. Check that the logging agent is running with:
 
    ```
    $ oc get all -n ibm-observe
    ```
- 
-   ![ldna-5](../images/ldna-6.png)
+   ![ldna-5](../images/ldna-5.png)
+
+
+   ![ldna-6](../images/ldna-6.png)
 
 
 ## Step 2 - Use LogDNA
