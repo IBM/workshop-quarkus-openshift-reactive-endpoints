@@ -34,7 +34,7 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 
    * From the "burger menu" select "Observability"
 
-   ![ldna-1](images/ldna-1.png)
+   ![ldna-1](../images/ldna-1.png)
 
 
 
@@ -44,7 +44,7 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
    
    * Click "Create a logging instance"
 
-   ![ldna-2](images/ldna-2.png)
+   ![ldna-2](../images/ldna-2.png)
 
    * Leave the default name or choose your own ("logdna-openshift")
 
@@ -60,16 +60,16 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 
    * Click "Create" at the bottom of the dialog.
 
-   ![ldna-3](images/ldna-3.png)
+   ![ldna-3](../images/ldna-3.png)
 
   
 1. Click on "Edit log sources"
 
-   ![ldna-4](images/ldna-4.png)
+   ![ldna-4](../images/ldna-4.png)
 
 1. Select the "OpenShift" tab. Copy, paste, and execute the commands into your IBM Cloud Shell:
 
-   ![ldna-5](images/ldna-5.png)
+   ![ldna-5](../images/ldna-5.png)
 
 1. Check that the logging agent is running with:
 
@@ -77,7 +77,7 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
    $ oc get all -n ibm-observe
    ```
  
-   ![ldna-5](images/ldna-6.png)
+   ![ldna-5](../images/ldna-6.png)
 
 
 ## Step 2 - Use LogDNA
@@ -87,7 +87,7 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 3. In the Observability menu select "Logging"
 4. Click on "View LogDNA"
 
-   ![LogDNA](images/logdna.png)
+   ![LogDNA](../images/logdna.png)
 
    This will open the LogDNA dashboard. 
 
@@ -102,13 +102,13 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 
 6. Refresh your browser tab with the LogDNA dashboard, open the  "All Apps" pulldown, and select "authors":
 
-   ![Filter Apps](images/logdna-filter-apps.png)
+   ![Filter Apps](../images/logdna-filter-apps.png)
 
     Note: If you don't see "authors" wait a little longer (with the free/lite version it can take several minutes before data shows up), then refresh the browser tab of the LogDNA dashboard again.
 
 7. You should now see messages from the authors service alone:
 
-   ![Authors LogDNA](images/logdna-authors.png)
+   ![Authors LogDNA](../images/logdna-authors.png)
 
 8. Terminate the command from step 5 ("watch curl ...")
 
