@@ -31,6 +31,8 @@ After you complete this workshop, you'll understand the following reactive funct
 
 This workshop is for beginners and takes one hour.
 
+*The intention of this workshop is not to explain every aspect of reactive programming, but to explain core reactive principles and to deploy a complete reactive application which you can inspect after the workshop in more detail.*
+
 ## Get Started
 
 These are the labs of this workshop, go through all of them in sequence, start with lab 1:
