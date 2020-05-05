@@ -49,7 +49,7 @@ You should see the following response.
 
 ![](../images/new-project1.png)
 
-The implementation of the synchronous endpoint is in the class [FruitResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/FruitResource.java). The annotations @Path, @Get and @Produces are used to define the endpoint via [JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services).
+The implementation of the synchronous endpoint is in the class [FruitResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/FruitResource.java). The annotations @Path, @Get and @Produces are used to define the endpoint via [JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services). To learn more about synchronous endpoints, check out the [Quarkus guide](https://quarkus.io/guides/rest-json).
 
 ```
 $ cd rest-json-quickstart/src/main/java/org/acme/rest/json/
@@ -58,7 +58,137 @@ $ cat FruitResource.java
 
 ![](../images/new-project2.png)
 
-### Step 3: ....
+### Step 3: Create Class ArticleResource
+
+Next let's create a reactive endpoint. We need a new class 'ArticleResource.java' and a class 'Article.java'.
+
+```
+$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ touch Article.java 
+$ touch ArticleResource.java 
+$ nano Article.java
+```
+
+Add the following code to 'Article.java'.
+
+```
+package org.acme.rest.json;
+
+public class Article {
+	public String title;
+	public String url;
+    public String author;
+    public String id;
+    public String creationDate;
+}
+```
+
+![](../images/reactive3.png)
+
+Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
+
+Modify the class via nano and add the following skeleton. The complete source is in [GitHub repo](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java).
+
+```
+$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ nano ArticleResource.java
+```
+
+```
+package org.acme.rest.json;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.inject.Inject;
+import javax.json.JsonArray;
+import javax.json.stream.JsonCollectors;
+import javax.ws.rs.core.Response;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+import javax.json.Json;
+import javax.json.JsonObject;
+import java.util.ArrayList;
+
+@Path("/articles")
+public class ArticleResource {
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompletionStage<Response> getArticles() {
+        
+        CompletableFuture<Response> future = new CompletableFuture<Response>();        
+
+        CompletableFuture.supplyAsync(() -> {
+            List<Article> articles = getSampleArticles();            
+            return articles;
+        }).thenApply(articles -> {
+            JsonArray articlesAsJson;
+            articlesAsJson = articles
+                                .stream()
+                                .map(article -> createJsonArticle(article))
+                                .collect(JsonCollectors.toJsonArray());                   
+            
+            return Response.ok(articlesAsJson).build();
+        }).whenComplete((response, e) -> {
+            future.complete(response);
+        });
+        return future;
+    }
+
+    static public List<Article> getSampleArticles() {
+        ArrayList<Article> articles = new ArrayList<Article>();
+        Article article = new Article();
+        article.author = "Niklas Heidloff";
+        article.title = "Super awesome article";
+        article.url = "http://heidloff.net";
+        article.id = "1";
+        article.creationDate = new java.util.Date().toString();
+        articles.add(article);
+        return articles;
+    }
+
+    static public JsonObject createJsonArticle(Article article) {
+        return Json.createObjectBuilder()
+                .add("id", article.id)
+                .add("title", article.title)
+                .add("url", article.url)
+                .add("author", article.author)
+                .build();
+    }
+}
+```
+
+![](../images/reactive1.png)
+
+Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
+
+### Step 4: Test the reactive Endpoint
+
+In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
+
+```
+$ cd ~/rest-json-quickstart
+$ ./mvnw compile quarkus:dev
+```
+
+Open a second terminal in the Cloud Shell and invoke the following command.
+
+```
+$ curl http://localhost:8080/articles
+```
+
+You should see the following response.
+
+![](../images/reactive2.png)
+
+### Step 5: Understand the Implementation
+
+Now the big question is: How does the reactive endpoint work??? Let's go through the code.
+
+to be done
 
 ---
 
