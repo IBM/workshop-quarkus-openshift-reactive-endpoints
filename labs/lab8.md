@@ -44,7 +44,7 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 
    * Leave the pre-selected region
 
-   * Leave the default plan  with the pricing "Free"
+   * Leave the default plan "Lite" with the pricing "Free"
 
    * Give the service a name "logdna-openshift-reactive"
    
@@ -76,7 +76,7 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
    ![ldna-5](../images/ldna-5.png)
 
 
-   ![ldna-6](../images/ldna-6.png)
+   
 
 
 ## Step 2 - Use LogDNA
@@ -86,30 +86,41 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 3. In the Observability menu select "Logging"
 4. Click on "View LogDNA"
 
-   ![LogDNA](../images/logdna.png)
+   ![ldna-6](../images/ldna-6.png)
+   (../images/logdna.png)
 
    This will open the LogDNA dashboard. 
 
-5. In Lab 4 "[Deploying to OpenShift](4-openshift.md)" you have deployed an instance of the authors service. We will check LogDNA for output from this instance. Execute the following commands in the IBM Cloud Shell:
+5. In Lab 4 "[Deploying Sample Application](lab4.md)" you have deployed an instance of the articles-reactive. We will check LogDNA for output from this instance. Execute the following commands in the IBM Cloud Shell:
+
+articles-reactive-cloud-native-starter.codeready-workspaces-16067cc6e7c2e68ea20123417ed879b8-0000.eu-de.containers.appdomain.cloud
 
    ```
    $ oc project <your project>
-   $ watch curl -X GET "http://$(oc get route authors-bin -o jsonpath={.spec.host})/api/v1/getauthor?name=Niklas%20Heidloff" -H "accept: application/json"
+   $ watch curl -X GET "http://$(oc get route articles-reactive -o jsonpath={.spec.host})/v2/articles?amount=10" -H "accept: application/json"  
    ```
    
-   The "watch" command will constantly (every 2 seconds) request author information.
+   The "watch" command will constantly (every 2 seconds) request articles information.
 
-6. Refresh your browser tab with the LogDNA dashboard, open the  "All Apps" pulldown, and select "authors":
+6. Refresh your browser tab with the LogDNA dashboard and insert in the search field "getArticlesReactive"
 
-   ![Filter Apps](../images/logdna-filter-apps.png)
+   ![Filter](../images/logdna-filter.png)
 
-    Note: If you don't see "authors" wait a little longer (with the free/lite version it can take several minutes before data shows up), then refresh the browser tab of the LogDNA dashboard again.
+    Note: If you don't see "getArticlesReactive" wait a little longer (with the free/lite version it can take several minutes before data shows up), then refresh the browser tab of the LogDNA dashboard again.
 
-7. You should now see messages from the authors service alone:
+7. Select "Unsaved View->Save as new/alert"
 
-   ![Authors LogDNA](../images/logdna-authors.png)
+   ![Save view in LogDNA](../images/logdna-view-01.png)
 
-8. Terminate the command from step 5 ("watch curl ...")
+8. Give it name "View getArticlesReactive" and press "Save View"
+    
+   ![Save view in LogDNA](../images/logdna-view-02.png)
+
+9. From now the new view is available under "Views"
+
+   [Save view in LogDNA](../images/logdna-view-03.png)
+
+10. Terminate the command from step 5 ("watch curl ...")
 
 ---
 
