@@ -115,7 +115,7 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 
 9. From now the new view is available under "Views"
 
-   [Save view in LogDNA](../images/logdna-view-03.png)
+   ![Save view in LogDNA](../images/logdna-view-03.png)
 
 10. Terminate the command from step 5 ("watch curl ...")
 
