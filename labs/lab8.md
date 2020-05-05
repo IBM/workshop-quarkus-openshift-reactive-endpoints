@@ -87,7 +87,6 @@ For the following instructions use the IBM Cloud Shell to enter the commands.
 4. Click on "View LogDNA"
 
    ![ldna-6](../images/ldna-6.png)
-   (../images/logdna.png)
 
    This will open the LogDNA dashboard. 
 
