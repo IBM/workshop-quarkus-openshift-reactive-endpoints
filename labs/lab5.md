@@ -24,6 +24,7 @@ The service that will be created is an easier implementation of the 'Web-API' se
 Let's start by creating a new Quarkus project with a synchronous REST endpoint. Invoke the following command the Cloud Shell.
 
 ```
+$ cd ~/cloud-native-starter/reactive
 $ mvn io.quarkus:quarkus-maven-plugin:1.4.1.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=rest-json-quickstart \
@@ -39,7 +40,7 @@ To better understand which files have been created, run the same command locally
 In order to test the synchronous endpoint which has been created with the command above, run these commands in one terminal in the Cloud Shell.
 
 ```
-$ cd rest-json-quickstart
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart
 $ ./mvnw compile quarkus:dev
 ```
 
@@ -56,7 +57,7 @@ You should see the following response.
 The implementation of the synchronous endpoint is in the class [FruitResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/FruitResource.java). The annotations @Path, @Get and @Produces are used to define the endpoint via [JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services). To learn more about synchronous endpoints, check out the [Quarkus guide](https://quarkus.io/guides/rest-json).
 
 ```
-$ cd rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 $ cat FruitResource.java 
 ```
 
@@ -67,7 +68,7 @@ $ cat FruitResource.java
 Next let's create a reactive endpoint. We need a new class 'ArticleResource.java' and a class 'Article.java'.
 
 ```
-$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 $ touch Article.java 
 $ touch ArticleResource.java 
 $ nano Article.java
@@ -94,7 +95,7 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 Modify the ArticleResource class via nano and add the following skeleton. The complete source is in the [GitHub repo](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java).
 
 ```
-$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 $ nano ArticleResource.java
 ```
 

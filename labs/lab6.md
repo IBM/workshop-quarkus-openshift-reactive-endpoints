@@ -39,7 +39,7 @@ In order to map HTTP response codes to Java exceptions, a ResponseExceptionMappe
 Create the class [InvalidInputParameter.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/InvalidInputParameter.java). This exception is thrown by the 'Articles' service when the amount parameter is not correct, for example if the value is negative.
 
 ```
-$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 $ touch InvalidInputParameter.java
 $ nano InvalidInputParameter.java
 ```
@@ -66,7 +66,7 @@ Create the class [ExceptionMapperArticles.java](https://github.com/nheidloff/wor
 
 
 ```
-$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 $ touch ExceptionMapperArticles.java
 $ nano ExceptionMapperArticles.java
 ```
@@ -109,7 +109,7 @@ Note that the annotations @Get and @Produces can be confusing. These are the JAX
 Also note that the service does not return a Response object directly. Instead it returns a CompletionStage object with a Response object as described earlier. With the MicroProfile Rest Client you can invoke services both synchronously as well as asynchronously.
 
 ```
-$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 $ touch ArticlesService.java
 $ nano ArticlesService.java
 ```
@@ -142,7 +142,7 @@ Create the class [ArticlesDataAccess.java](https://github.com/nheidloff/workshop
 
 
 ```
-$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 $ touch ArticlesDataAccess.java
 $ nano ArticlesDataAccess.java
 ```
@@ -194,7 +194,7 @@ public class ArticlesDataAccess {
 In a second terminal run the following command to get the URL of your 'Articles' service.
 
 ```
-$ cd $ROOT_FOLDER
+$ cd ~/cloud-native-starter/reactive
 $ os4-scripts/show-urls.sh
 ```
 
@@ -207,7 +207,7 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous lab to invoke the actual service rather than returning a sample article.
 
 ```
-$ cd ~/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 $ nano ArticleResource.java
 ```
 
@@ -245,7 +245,7 @@ $ nano ArticleResource.java
 In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
 
 ```
-$ cd ~/rest-json-quickstart
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart
 $ ./mvnw compile quarkus:dev
 ```
 

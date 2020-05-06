@@ -27,8 +27,6 @@ public class ArticlesDataAccess {
 
     @PostConstruct
     void initialize() {
-
-
         URI apiUrl = UriBuilder.fromUri(urlArticlesServiceOpenShift).build();
         articlesService = RestClientBuilder.newBuilder()
                 .baseUri(apiUrl)
@@ -36,11 +34,17 @@ public class ArticlesDataAccess {
                 .build(ArticlesService.class);
     }
 
+    // Java 8
+    public CompletionStage<List<Article>> getArticlesReactive(int amount) {
+        return articlesService.getArticlesFromService(amount);
+    }
 
+    /*
+    // Java 9 or higher
     public CompletionStage<List<Article>> getArticlesReactive(int amount) {
         return articlesService.getArticlesFromService(amount)
                 .toCompletableFuture()
                 .orTimeout(MAXIMAL_DURATION, TimeUnit.MILLISECONDS);
     }
-
+    */
 }
