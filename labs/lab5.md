@@ -13,7 +13,9 @@ Navigator:
 
 # Lab 5: Develop reactive Endpoints
 
-In this lab you will learn how to develop reactive endpoints with standard Java functionality via [CompletionStage](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html) and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html).
+In this lab you will learn how to develop reactive endpoints with standard Java functionality via [CompletionStage](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html) and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html). 
+
+The service that will be created is an easier implementation of the 'Web-API' service as described earlier. In this lab the service only returns some dummy data and doesn't invoke other services.
 
 ### Step 1: Create Quarkus Project
 
@@ -261,7 +263,7 @@ In the same way exceptions and errors can occur for synchronous code, they can h
 
 However the way to handle them is quite different. When invoking asynchronous methods exceptions cannot be handled via 'catch' as usual. Instead the method 'exceptionally' of the interface CompletionStage is used.
 
-The code below should give you an idea how to handle exceptions. To find out more read the blog [Chained asynchronous Invocations and Error Handling](http://heidloff.net/article/developing-reactive-rest-apis-with-quarkus/).
+The code below should give you an idea how to handle exceptions. To find out more, read the blog [Chained asynchronous Invocations and Error Handling](http://heidloff.net/article/developing-reactive-rest-apis-with-quarkus/).
 
 If you want to try out 'exceptionally' uncomment the line where the InvalidInputParameter exception is thrown.
 
