@@ -24,7 +24,7 @@ You will extend the service from the previous lab to invoke the 'Articles' servi
 First the MicroProfile library needs to be added to the project.
 
 ```
-$ cd ~/rest-json-quickstart
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart
 $ ./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client"
 ```
 
@@ -184,9 +184,7 @@ public class ArticlesDataAccess {
     }
 
     public CompletionStage<List<Article>> getArticlesReactive(int amount) {
-        return articlesService.getArticlesFromService(amount)
-                .toCompletableFuture()
-                .orTimeout(MAXIMAL_DURATION, TimeUnit.MILLISECONDS);
+        return articlesService.getArticlesFromService(amount);
     }
 }
 ```
@@ -208,10 +206,32 @@ In the last step you need to modify [ArticleResource.java](https://github.com/nh
 
 ```
 $ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ rm ArticleResource.java
+$ touch ArticleResource.java
 $ nano ArticleResource.java
 ```
 
 ```
+package org.acme.rest.json;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.inject.Inject;
+import javax.json.JsonArray;
+import javax.json.stream.JsonCollectors;
+import javax.ws.rs.core.Response;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+import javax.json.Json;
+import javax.json.JsonObject;
+import java.util.ArrayList;
+
+@Path("/articles")
+public class ArticleResource {
+
     @Inject
     ArticlesDataAccess articlesDataAccess;
 
@@ -238,6 +258,28 @@ $ nano ArticleResource.java
         });
         return future;
     }
+
+    static public List<Article> getSampleArticles() {
+        ArrayList<Article> articles = new ArrayList<Article>();
+        Article article = new Article();
+        article.author = "Niklas Heidloff";
+        article.title = "Super awesome article";
+        article.url = "http://heidloff.net";
+        article.id = "1";
+        article.creationDate = new java.util.Date().toString();
+        articles.add(article);
+        return articles;
+    }
+
+    static public JsonObject createJsonArticle(Article article) {
+        return Json.createObjectBuilder()
+                .add("id", article.id)
+                .add("title", article.title)
+                .add("url", article.url)
+                .add("author", article.author)
+                .build();
+    }
+}
 ```
 
 ### Step 5: Test the Code
@@ -257,8 +299,7 @@ $ curl http://localhost:8080/articles
 
 You should see the following response.
 
-![](../images/articles-result.png)
-
+![](../images/result-articles.png)
 
 ---
 

@@ -175,7 +175,7 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
 
 ```
-$ cd ~/rest-json-quickstart
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/
 $ ./mvnw compile quarkus:dev
 ```
 
