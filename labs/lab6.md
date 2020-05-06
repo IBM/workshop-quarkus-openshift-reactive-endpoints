@@ -19,7 +19,18 @@ You will extend the service from the previous lab to invoke the 'Articles' servi
 
 ![](../images/lab6.png)
 
-### Step 1: Create Exception Handling Classes
+### Step 1: Add the MicroProfile Extension
+
+First the MicroProfile library needs to be added to the project.
+
+```
+$ cd ~/rest-json-quickstart
+$ ./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client"
+```
+
+![](../images/extension.png)
+
+### Step 2: Create Exception Handling Classes
 
 The great thing about the MicroProfile REST Client is that it makes it really easy to invoke remote APIs of other services. As developer you don't have to worry about serialization/deserialization/etc. All you need to do is to define interfaces and some configuration.
 
@@ -87,7 +98,7 @@ public class ExceptionMapperArticles implements ResponseExceptionMapper<InvalidI
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 2: Create the ArticlesService Interface
+### Step 3: Create the ArticlesService Interface
 
 Next an interface of the service that is supposed to be invoked is defined. The implementation of this interface is provided magically by MicroProfile.
 
@@ -123,7 +134,7 @@ public interface ArticlesService {
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 3: Create the Code to invoke Services 
+### Step 4: Create the Code to invoke Services 
 
 Now let's write the code to invoke the 'Articles' service. Basically all you need to do is to define the URL of the endpoint and invoke a Java method. Check out the code below, especially the invocation of the service via 'articlesService.getArticlesFromService(amount)'.
 
@@ -180,11 +191,11 @@ public class ArticlesDataAccess {
 }
 ```
 
-In a second terminal run the following command to the the URL of your 'Articles' service.
+In a second terminal run the following command to get the URL of your 'Articles' service.
 
 ```
 $ cd $ROOT_FOLDER
-$ os4scripts/show-urls.sh
+$ os4-scripts/show-urls.sh
 ```
 
 ![](../images/get-url.png)
@@ -229,6 +240,24 @@ $ nano ArticleResource.java
     }
 ```
 
+### Step 5: Test the Code
+
+In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
+
+```
+$ cd ~/rest-json-quickstart
+$ ./mvnw compile quarkus:dev
+```
+
+Open a second terminal in the Cloud Shell and invoke the following command.
+
+```
+$ curl http://localhost:8080/articles
+```
+
+You should see the following response.
+
+![](../images/articles-result.png)
 
 
 ---
