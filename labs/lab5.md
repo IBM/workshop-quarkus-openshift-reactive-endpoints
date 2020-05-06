@@ -17,6 +17,8 @@ In this lab you will learn how to develop reactive endpoints with standard Java 
 
 The service that will be created is an easier implementation of the 'Web-API' service as described earlier. In this lab the service only returns some dummy data and doesn't invoke other services.
 
+![](../images/lab5.png)
+
 ### Step 1: Create Quarkus Project
 
 Let's start by creating a new Quarkus project with a synchronous REST endpoint. Invoke the following command the Cloud Shell.
