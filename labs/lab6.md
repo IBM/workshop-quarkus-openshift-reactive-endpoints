@@ -165,9 +165,6 @@ public class ArticlesDataAccess {
 
     private static final int MAXIMAL_DURATION = 5000;
 
-    // this configuration needs to be used when running the code in OpenShift
-    private static String urlArticlesServiceLocal = "http://articles-reactive:8080/v2/articles?amount=10";    
-
     // this configuration needs to be used when running this web-api service locally
     // run the following command to get this URL: os4scripts/show-urls.sh
     private static String urlArticlesServiceOpenShift = "http://articles-reactive-cloud-native-starter.niklas-heidloff-os-fra-162e406f043e20da9b0ef0731954a894-0000.eu-de.containers.appdomain.cloud/v2/articles?amount=10";
@@ -300,6 +297,24 @@ $ curl http://localhost:8080/articles
 You should see the following response.
 
 ![](../images/result-articles.png)
+
+### Step 6: Understand Timeouts
+
+When writing asynchronous code it's important to consider timeouts, especially when you invoke third party services like databases or other microservices.
+
+Fortunately starting with Java 9 this is easy to handle. When invoking the 'Articles' service via MicroProfile, you can use the method 'orTimeout'. If it comes to a timeout, an exception is thrown which you can handled via 'exceptionally' as explained in the last lab.
+
+```
+public CompletionStage<List<Article>> getArticlesReactive(int amount) {
+  return articlesService.getArticlesFromService(amount)
+    .toCompletableFuture()
+    .orTimeout(MAXIMAL_DURATION, TimeUnit.MILLISECONDS);
+}
+```
+
+The method 'orTimeout' doesn't exist in the CompletionStage interface. You need to run 'toCompletableFuture' first to get an instance of CompletableFuture.
+
+Unfortunately this capability is only available in Java 9+. Since the current version of the Cloud Shell supports only Java 8, we cannot run it here. But you can obviously run it locally or in a container on OpenShift.
 
 ---
 
