@@ -30,7 +30,7 @@ $ oc new-project cloud-native-starter
 Invoke the following command in the Cloud Shell to deploy the 'Articles' service.
 
 ```
-$ $ROOT_FOLDER/os4-scripts/deploy-articles-reactive-postgres-via-oc.sh
+$ ~/cloud-native-starter/reactive/os4-scripts/deploy-articles-reactive-postgres-via-oc.sh
 ```
 
 ![sample app](../images/deploy-app1.png)
@@ -38,7 +38,7 @@ $ $ROOT_FOLDER/os4-scripts/deploy-articles-reactive-postgres-via-oc.sh
 Invoke the following command in the Cloud Shell to deploy the 'Authors' service.
 
 ```
-$ $ROOT_FOLDER/os4-scripts/deploy-authors-via-oc.sh
+$ ~/cloud-native-starter/reactive/os4-scripts/deploy-authors-via-oc.sh
 ```
 
 ![sample app](../images/deploy-app2.png)
@@ -46,7 +46,7 @@ $ $ROOT_FOLDER/os4-scripts/deploy-authors-via-oc.sh
 Invoke the following command in the Cloud Shell to deploy the 'Web-API' service.
 
 ```
-$ $ROOT_FOLDER/os4-scripts/deploy-web-api-reactive-via-oc.sh
+$ ~/cloud-native-starter/reactive/os4-scripts/deploy-web-api-reactive-via-oc.sh
 ```
 
 ![sample app](../images/deploy-app3.png)
@@ -54,7 +54,7 @@ $ $ROOT_FOLDER/os4-scripts/deploy-web-api-reactive-via-oc.sh
 Invoke the following command in the Cloud Shell to deploy the web app.
 
 ```
-$ $ROOT_FOLDER/os4-scripts/deploy-web-app-reactive-via-oc.sh
+$ ~/cloud-native-starter/reactive/os4-scripts/deploy-web-app-reactive-via-oc.sh
 ```
 
 ![sample app](../images/deploy-app4.png)
@@ -76,7 +76,7 @@ The previous steps have create build configs, builds and image streams.
 To launch the application get the URLs via the following command.
 
 ```
-$ $ROOT_FOLDER/os4-scripts/show-urls.sh
+$ ~/cloud-native-starter/reactive/os4-scripts/show-urls.sh
 ```
 
 ![sample app](../images/verify-app5.png)

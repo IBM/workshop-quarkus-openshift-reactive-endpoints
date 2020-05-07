@@ -1,6 +1,6 @@
 # Workshop: Reactive Endpoints with Quarkus on OpenShift
 
-In this workshop you'll learn how to implement reactive endpoints with Java, Quarkus and MicroProfile. An end-to-end sample application will be deployed to Red Hat OpenShift on IBM Cloud.
+In this workshop you'll learn how to implement reactive endpoints with Java, [Quarkus](https://quarkus.io/) and [MicroProfile](https://microprofile.io/). An end-to-end sample application will be deployed to [Red Hat OpenShift](https://www.openshift.com/).
 
 The code is available as open source as part of the [Cloud Native Starter](https://github.com/IBM/cloud-native-starter/tree/master/reactive) project. 
 
@@ -48,7 +48,7 @@ These are the labs of this workshop, go through all of them in sequence, start w
 
 ## What to do next
 
-The [presentation](images/ReactiveMicroservices.pdf) as well as the [blogs](https://github.com/IBM/cloud-native-starter/tree/master/reactive#blogs) describe the functionality in more detail.
+The [blogs](https://github.com/IBM/cloud-native-starter/tree/master/reactive#blogs) as well as the [presentation](images/ReactiveMicroservices.pdf) describe the functionality in more detail.
 
-There is a second workshop which uses the same sample application. That workshop [Reactive Messaging with Quarkus on OpenShift](https://nheidloff.github.io/workshop-quarkus-openshift-reactive-messaging/) focusses on messaging with Kafka.
+There is a second workshop which uses the same sample application. That workshop is called [Reactive Messaging with Quarkus on OpenShift](https://nheidloff.github.io/workshop-quarkus-openshift-reactive-messaging/) and it focusses on messaging with Kafka.
 

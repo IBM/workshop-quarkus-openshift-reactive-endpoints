@@ -20,7 +20,7 @@ In this short lab you'll deploy Kafka via a script.
 Invoke the following command:
 
 ```
-$ $ROOT_FOLDER/os4-scripts/deploy-kafka-oc-only.sh 
+$ ~/cloud-native-starter/reactive/os4-scripts/deploy-kafka-oc-only.sh 
 ```
 
 As result you will see this:

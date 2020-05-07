@@ -13,21 +13,19 @@ Navigator:
 
 # Lab 1: Create your Cloud Environment
 
-An [IBM Cloud account](http://ibm.biz/nheidloff) is needed. It's free, doesn't expire and for the lite account no credit card is required.
+The main instructions of this workshop assume that you will use Red Hat OpenShift 4.3 on IBM Cloud. However you can also use [CodeReady Containers](https://github.com/code-ready/crc) to run OpenShift locally.
+
+To use OpenShift on IBM Cloud and LogDNA in lab 8, an [IBM Cloud account](http://ibm.biz/nheidloff) is needed. It's free, doesn't expire and for the lite account no credit card is required.
 
 We will use preconfigured [OpenShift on IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster) clusters in this hands-on workshop. You should have received information from your lab instructor to get access to one of these clusters.
 
-Alternatively you can also use [CodeReady Containers](https://github.com/code-ready/crc) to run OpenShift locally.
+### Step 1: Set up Terminal
 
+When using OpenShift on IBM Cloud no client side setup is required for this workshop. Instead we will use the IBM Cloud Shell (Beta) which comes with all necessary CLIs (command line tools).
 
-### Step 1: Set up Work Environment
+In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard. Make sure you select your own account in the account list at the top, then click on the IBM Cloud Shell icon.
 
-For this workshop no client side setup is required. Instead we will use the IBM Cloud Shell (Beta):
-
-1. In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard
-2. Make sure you select your own account in the account list, then click on the IBM Cloud Shell Icon
-
-   ![](../images/cloud-shell-launch.png)
+![](../images/cloud-shell-launch.png)
 
 Note: Your workspace includes 500 MB of temporary storage. Your session closes after 30 minutes of inactivity. If you’re inactive in Cloud Shell for over an hour, your workspace data is removed. It’s also removed if you reach the 4-hour continuous usage or 30-hour weekly usage limits.
 
@@ -35,56 +33,55 @@ This is what you should see:
 
 ![](../images/cloud-shell.png)
 
+When using OpenShift locally, you need a local terminal and the following tools: 
+
+* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [curl](https://curl.haxx.se/download.html)
+* [oc](https://docs.openshift.com/container-platform/4.3/welcome/index.html)
+* [mvn](https://maven.apache.org/ref/3.6.3/maven-embedder/cli.html)
+* Java 9 or higher
 
 ### Step 2: Get the Code
 
-In the IBM Cloud Shell execute the following commands:
+In the IBM Cloud Shell execute the following command:
 
 ```
 $ git clone https://github.com/IBM/cloud-native-starter.git
-$ cd ~/cloud-native-starter/reactive/
-$ ROOT_FOLDER=$(pwd)
 ```
 
 ![](../images/cloud-shell-clone.png)
 
-### Step 3. Get Access to OpenShift on the IBM Cloud
+### Step 3. Get Access to OpenShift
 
-### 3.a. Open the OpenShift Console
+Open the [IBM Cloud Dashboard](https://cloud.ibm.com). In the row at the top switch from your **own** account to the **IBM account** given to you by the instructor from the pulldown in the uper right corner.
 
-1. Open the [IBM Cloud Dashboard](https://cloud.ibm.com).
+The select 'OpenShift' in the burger menu in the upper left corner followed by 'Clusters'.
 
-2. Switch from your **own** account to the **IBM account** given to you by the instructor from the pulldown in the uper right corner.
+![Select Open Shift in the menu](../images/openshift-console-launch1.png)
 
-3. Select 'OpenShift' in the burger menu.
+Click on your cluster.
 
-    ![Select Open Shift in the menu](../images/openshift-console-launch1.png)
+![C](../images/openshift-console-launch2.png)
 
-4. Chose 'OpenShift' and then 'Clusters'.
+Open the OpenShift web console.
 
-    ![Chose Clusters and click on your OpenShift cluster](../images/openshift-console-launch2.png)
+![Open the OpenShift web console](../images/openshift-console-launch3.png)
 
-4. Open the OpenShift web console
+From the dropdown menu in the upper right of the page, click 'Copy Login Command'. 
 
-    ![Open the OpenShift web console](../images/openshift-console-launch3.png)
+![Key](../images/openshift-login1.png)
 
-### 3.b. Set up the the 'oc' CLI
+Click on 'Display Token', then copy and paste the command 'Log in with this token' into your terminal in the IBM Cloud Shell.
 
-1. From the dropdown menu in the upper right of the page, click 'Copy Login Command'. 
+![Key](../images/openshift-login2.png)
 
-    ![Key](../images/openshift-login1.png)
+Login to OpenShift in IBM Cloud Shell
 
-1. Click on 'Display Token', then copy and paste the command 'Log in with this token' into your terminal in the IBM Cloud Shell.
+```
+$ oc login https://c1XX-XX-X.containers.cloud.ibm.com:XXXXX --token=xxxxxx'
+```
 
-    ![Key](../images/openshift-login2.png)
-
-1. Login to OpenShift in IBM Cloud Shell
-
-    ```
-    $ oc login https://c1XX-XX-X.containers.cloud.ibm.com:XXXXX --token=xxxxxx'
-    ```
-
-    ![oc login in cloudshell](../images/openshift-login3.png)
+![oc login in cloudshell](../images/openshift-login3.png)
 
 ---
 
