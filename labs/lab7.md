@@ -68,9 +68,9 @@ public class ArticlesDataAccess {
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 2: Deploy your Service
+### Step 2: Build the Image
 
-Invoke the following commands to deploy the service.
+Invoke the following commands to build the image.
 
 ```
 $ cd ~/cloud-native-starter/reactive/rest-json-quickstart/
@@ -83,8 +83,46 @@ $ oc start-build my-web-api-reactive --from-dir=.
 
 ![](../images/deploy-my-web-api.png)
 
+The build will take some time. In the meantime you can check out the Dockerfile, for example to see how the ubi-minimal image is used.
 
+```
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/
+$ cat Dockerfile
+```
 
+Open the OpenShift Web Console and wait for the build to be completed.
+
+![](../images/deploy2.png)
+
+The output of the build will be a new image stream.
+
+![](../images/deploy3.png)
+
+### Step 3: Deploy and test the Image
+
+In the 'Developer' view, click on 'Add' and then 'Container Image'.
+
+![](../images/deploy4.png)
+
+On the next page choose 'Image from internal registry' and define the project, stream name and tag.
+
+![](../images/deploy5.png)
+
+Leave all other defaults including 'Create a route' and click 'Create'.
+
+![](../images/deploy6.png)
+
+On the next page click on 'my-web-api-reactive'.
+
+![](../images/deploy7.png)
+
+Wait until the pod is running. After this click on the route at the bottom.
+
+![](../images/deploy8.png)
+
+This will display the home page of the generated service. To invoke your endpoint append 'artiles' to the URL.
+
+![](../images/deploy10.png)
 
 ---
 
