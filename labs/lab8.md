@@ -10,7 +10,6 @@ Navigator:
 * Lab 8 (optional): Use distributed Logging
 
 ---
-**** UNDERCONSTRUCTION ****
 
 # Lab 8 (optional): Use distributed Logging
 
