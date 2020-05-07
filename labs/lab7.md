@@ -13,15 +13,78 @@ Navigator:
 
 # Lab 7: Deploy Service to OpenShift
 
-to be done
+In this lab you will deploy your 'My-Web-API' service to OpenShift.
 
-### Step 1: to be done
+### Step 1: Change the Endpoint URL
+
+Once the service is running on Kubernetes or OpenShift, it can access other services easily via DNS, for example in our case via "http://articles-reactive:8080/". In that case the traffic only occurs
+
+Re-create the class [ArticlesDataAccess.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticlesDataAccess.java).
 
 ```
-$ ..
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
+$ rm ArticlesDataAccess.java
+$ touch ArticlesDataAccess.java
+$ nano ArticlesDataAccess.java
 ```
 
-![](../images/.png)
+```
+package org.acme.rest.json;
+
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.rest.client.RestClientBuilder;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.core.UriBuilder;
+import java.net.URI;
+import java.util.List;
+import java.util.concurrent.CompletionStage;
+import java.util.concurrent.TimeUnit;
+
+@ApplicationScoped
+public class ArticlesDataAccess {
+
+    private static final int MAXIMAL_DURATION = 5000;
+
+    // this configuration needs to be used when running the code in OpenShift
+    private static String urlArticlesServiceLocal = "http://articles-reactive:8080/v2/articles?amount=10";       
+
+    private ArticlesService articlesService;
+
+    @PostConstruct
+    void initialize() {
+        URI apiUrl = UriBuilder.fromUri(urlArticlesServiceLocal).build();
+        articlesService = RestClientBuilder.newBuilder()
+                .baseUri(apiUrl)
+                .register(ExceptionMapperArticles.class)
+                .build(ArticlesService.class);
+    }
+
+    public CompletionStage<List<Article>> getArticlesReactive(int amount) {
+        return articlesService.getArticlesFromService(amount);
+    }
+}
+```
+
+Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
+
+### Step 2: Deploy your Service
+
+Invoke the following commands to deploy the service.
+
+```
+$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/
+$ oc project cloud-native-starter
+$ mvn package
+$ mv src/main/docker/Dockerfile.jvm ./Dockerfile
+$ oc new-build --name my-web-api-reactive --binary --strategy docker 
+$ oc start-build my-web-api-reactive --from-dir=.
+```
+
+![](../images/deploy-my-web-api.png)
+
+
+
 
 ---
 

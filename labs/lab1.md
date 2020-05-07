@@ -42,8 +42,7 @@ In the IBM Cloud Shell execute the following commands:
 
 ```
 $ git clone https://github.com/IBM/cloud-native-starter.git
-$ cd cloud-native-starter
-$ cd reactive
+$ cd ~/cloud-native-starter/reactive/
 $ ROOT_FOLDER=$(pwd)
 ```
 
