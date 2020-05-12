@@ -1,5 +1,5 @@
 Navigator:
-* [Workshop Description](https://nheidloff.github.io/workshop-quarkus-openshift-reactive-endpoints/)
+* [Workshop Description](https://ibm.github.io/workshop-quarkus-openshift-reactive-endpoints/)
 * Lab 1: [Create your Cloud Environment](lab1.md)
 * Lab 2: [Deploy Kafka via Script](lab2.md)
 * Lab 3: [Deploy Postgres via Operator](lab3.md)
