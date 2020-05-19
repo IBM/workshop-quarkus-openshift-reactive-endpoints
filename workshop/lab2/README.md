@@ -12,14 +12,14 @@ $ ~/cloud-native-starter/reactive/os4-scripts/deploy-kafka-oc-only.sh
 
 As result you will see this:
 
-![kafka deployment](../../images/kafka-deployment.png)
+![](../../images/kafka-deployment.png)
 
 
 ### Step 2: Verify the Installation 
 
 It takes a couple of minutes until all pods have been started. You can check the status via the OpenShift web console. On the 'Pods' page select the 'kafka' project.
 
-![kafka deployment](../../images/kafka-deployment2.png)
+![](../../images/kafka-deployment2.png)
 
 ---
 

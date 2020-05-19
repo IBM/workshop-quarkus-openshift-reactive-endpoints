@@ -56,11 +56,11 @@ Open the OpenShift web console.
 
 From the dropdown menu in the upper right of the page, click 'Copy Login Command'. 
 
-![Key](../../images/openshift-login1.png)
+![](../../images/openshift-login1.png)
 
 Click on 'Display Token', then copy and paste the command 'Log in with this token' into your terminal in the IBM Cloud Shell.
 
-![Key](../../images/openshift-login2.png)
+![](../../images/openshift-login2.png)
 
 Login to OpenShift in IBM Cloud Shell
 
@@ -68,7 +68,7 @@ Login to OpenShift in IBM Cloud Shell
 $ oc login https://c1XX-XX-X.containers.cloud.ibm.com:XXXXX --token=xxxxxx'
 ```
 
-![oc login in cloudshell](../../images/openshift-login3.png)
+![](../../images/openshift-login3.png)
 
 ---
 

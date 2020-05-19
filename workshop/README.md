@@ -67,15 +67,14 @@ This workshop has been tested on the following platforms:
 
 ### Technology Used
 
-* Java
-* Microprofile
-* Jakarta EE
-* Quarkus
-* Kafka
-* Postgres
-* OpenShift
-* Microservices architecture
-* VUE
+* [Jakarta EE](https://jakarta.ee/)
+* [MicroProfile](https://microprofile.io/)
+* [Quarkus](https://quarkus.io/)
+* [Apache Kafka](https://kafka.apache.org/)
+* [PostgresSQL](https://www.postgresql.org/)
+* [RedHat OpenShift](https://www.openshift.com/)
+* [Microservices architecture](https://en.wikipedia.org/wiki/Microservices)
+* [Vue.js](https://vuejs.org/)
 
 
 ### Credits
