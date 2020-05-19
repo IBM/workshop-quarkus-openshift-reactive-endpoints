@@ -58,8 +58,6 @@ The introductory page of the workshop is broken down into the following sections
 * [Credits](#credits)
 * [What`s next?](#whats-next?)
 
-
-
 ### Agenda
 
 These are the labs of this workshop, go through all of them in sequence, start with lab 1:
@@ -92,7 +90,6 @@ This workshop has been tested on the following platforms:
 * [RedHat OpenShift](https://www.openshift.com/)
 * [Microservices architecture](https://en.wikipedia.org/wiki/Microservices)
 * [Vue.js](https://vuejs.org/)
-
 
 ### Credits
 
