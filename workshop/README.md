@@ -56,7 +56,7 @@ These are the labs of this workshop, go through all of them in sequence, start w
 | [Lab 5](lab5/README.md) | Develop reactive Endpoints |
 | [Lab 6](lab6/README.md) | Invoke Endpoints reactively |
 | [Lab 7](lab7/README.md) | Deploy Service to OpenShift |
-| [Lab 8](lab7/README.md) | se distributed Logging |
+| [Lab 8](lab8/README.md) | Use distributed Logging |
 
 ### Compatibility
 
