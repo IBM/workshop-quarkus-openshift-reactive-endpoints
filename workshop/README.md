@@ -12,7 +12,12 @@ The sample contains a 'Web-API' service with two versions of the endpoint '/arti
 
 The reactive stack of this sample provides response times that take less than half of the time compared to the imperative stack: Reactive: 793 ms - Imperative: 1956 ms. If you want to know more details, you can read the [documentation](https://github.com/IBM/cloud-native-starter/blob/master/reactive/documentation/LoadTests.md) of the performance tests.
 
-This diagram explains the complete flow. The 'API Client' invokes the 'Web-API' service which implements a backend-for-frontend pattern. The 'Web-API' service invokes the two microservices 'Authors' and 'Articles'. The 'Articles' service reads data from Postgres.
+### Architecture
+
+The following architecture diagrams do explain the complete flow.
+
+* The 'API Client' invokes the 'Web-API' service which implements a backend-for-frontend pattern. 
+* The 'Web-API' service invokes the two microservices 'Authors' and 'Articles'. The 'Articles' service reads data from Postgres.
 
 <kbd><img src="../images/architecture2.png" /></kbd>
 
