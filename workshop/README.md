@@ -31,6 +31,12 @@ Note that in this workshop you will deploy the full application as described in 
 
 <kbd><img src="../images/architecture1.png" /></kbd>
 
+### Estimated time and level
+
+|  Time | Level  |
+| - | - |
+| one hour | beginners |
+
 ### Objectives
 
 After you complete this workshop, you'll understand the following reactive functionality:
@@ -41,12 +47,6 @@ After you complete this workshop, you'll understand the following reactive funct
 * Reactive REST invocations via MicroProfile REST Client
 
 *The intention of this workshop is not to explain every aspect of reactive programming, but to explain core reactive principles and to deploy a complete reactive application which you can inspect after the workshop in more detail.*
-
-### Estimated time and level
-
-|  Time | Level  |
-| - | - |
-| one hour | beginners |
 
 ### About this workshop
 
