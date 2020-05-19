@@ -42,22 +42,23 @@ After you complete this workshop, you'll understand the following reactive funct
 
 *The intention of this workshop is not to explain every aspect of reactive programming, but to explain core reactive principles and to deploy a complete reactive application which you can inspect after the workshop in more detail.*
 
+### Estimated time and level
+
+|  Time | Level  |
+| - | - |
+| one hour | beginners |
+
 ### About this workshop
 
 The introductory page of the workshop is broken down into the following sections:
 
-* [Estimated time and level](#Estimated-time-and-level)
 * [Agenda](#agenda)
 * [Compatibility](#compatibility)
 * [Technology Used](#technology-used)
 * [Credits](#credits)
 * [What`s next?](#whats-next?)
 
-### Estimated time and level
 
-|  Time | Level  |
-| - | - |
-| one hour | beginners |
 
 ### Agenda
 
