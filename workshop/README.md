@@ -6,15 +6,21 @@ The code is available as open source as part of the [Cloud Native Starter](https
 
 One key benefit of reactive systems and reactive REST endpoints is efficiency. This workshop describes how to use reactive systems and reactive programming to achieve faster response times. Especially in public clouds where costs depend on CPU, RAM and compute durations this model saves money.
 
-The workshop uses a sample application to demonstrate reactive functionality. The simple application displays links to articles and author information.
+The workshop uses a sample application to demonstrate reactive functionality. The sample application displays links to articles and author information.
 
 The sample contains a 'Web-API' service with two versions of the endpoint '/articles', one uses imperative code, the other one reactive code. In this workshop you'll re-implement a simplified version of the reactive version yourselves.
 
-The reactive stack of this sample provides response times that take less than half of the time compared to the imperative stack: Reactive: 793 ms - Imperative: 1956 ms. If you want to know more details, you can read the [documentation](https://github.com/IBM/cloud-native-starter/blob/master/reactive/documentation/LoadTests.md) of the performance tests.
+The reactive stack of this sample provides response times that take less than half of the time compared to the imperative stack: 
+
+|  Reactive | Imperative  |
+| - | - |
+| 793 ms | 1956 ms |
+
+If you want to know more details, you can read the [documentation](https://github.com/IBM/cloud-native-starter/blob/master/reactive/documentation/LoadTests.md) of the performance tests.
 
 ### Architecture
 
-The following architecture diagrams do explain the complete flow of the workshop.
+The following architecture diagrams do explain the complete flow the sample application.
 
 * The 'API Client' invokes the 'Web-API' service which implements a backend-for-frontend pattern. 
 * The 'Web-API' service invokes the two microservices 'Authors' and 'Articles'. The 'Articles' service reads data from Postgres.
