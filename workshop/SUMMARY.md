@@ -6,7 +6,7 @@
 
 ### Setup the sample application
 
-* [Lab 1 - Create your Cloud Environment](lab1/README.md)
+* [Lab 1 - Setup IBM Cloud Environment](lab1/README.md)
 * [Lab 2 - Deploy Kafka via Script](lab2/README.md)
 * [Lab 3 - Deploy Postgres via Operator](lab3/README.md) 
 * [Lab 4 - Deploy Sample Application](lab4/README.md)
@@ -18,13 +18,10 @@
 * [Lab 7 - Deploy Service to OpenShift](lab7/README.md)
 * [Lab 8 - Use distributed Logging](lab8/README.md) 
 
-### Workshop Resources
+### Resources
 
 * [Cloud-Native-Starter project](https://github.com/IBM/cloud-native-starter/tree/master/reactive)
 * [Cloud-Native-Starter project reactive](https://github.com/IBM/cloud-native-starter)
-
-### Resources
-
 * [Blog posts related to reactive in the Cloud-Native-Starter project](https://github.com/IBM/cloud-native-starter/tree/master/reactive#blogs)
 * [Workshop: Reactive Messaging with Quarkus on OpenShift](https://github.com/IBM/workshop-quarkus-openshift-reactive-messaging)
 
