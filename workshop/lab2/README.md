@@ -1,17 +1,4 @@
-Navigator:
-
-* Lab 1: [Create your Cloud Environment](../lab1/README.md)
-* Lab 2: Deploy Kafka via Script
-* Lab 3: [Deploy Postgres via Operator](../lab3/README.md)
-* Lab 4: [Deploy Sample Application](../lab4/README.md)
-* Lab 5: [Develop reactive Endpoints](../lab5/README.md)
-* Lab 6: [Invoke Endpoints reactively](../lab6/README.md)
-* Lab 7: [Deploy Service to OpenShift](../lab7/README.md)
-* Lab 8 (optional): [Use distributed Logging](../lab8/README.md)
-
----
-
-# Lab 1: Deploy Kafka via Script
+# Lab 2: Deploy Kafka via Script
 
 In this short lab you'll deploy Kafka via a script.
 

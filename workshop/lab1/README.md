@@ -1,16 +1,3 @@
-Navigator:
-
-* Lab 1: Create your Cloud Environment
-* Lab 2: [Deploy Kafka via Script](../lab2/README.md)
-* Lab 3: [Deploy Postgres via Operator](../lab3/README.md)
-* Lab 4: [Deploy Sample Application](../lab4/README.md)
-* Lab 5: [Develop reactive Endpoints](../lab5/README.md)
-* Lab 6: [Invoke Endpoints reactively](../lab6/README.md)
-* Lab 7: [Deploy Service to OpenShift](../lab7/README.md)
-* Lab 8 (optional): [Use distributed Logging](../lab8/README.md)
-
----
-
 # Lab 1: Create your Cloud Environment
 
 The main instructions of this workshop assume that you will use Red Hat OpenShift 4.3 on IBM Cloud. However you can also use [CodeReady Containers](https://github.com/code-ready/crc) to run OpenShift locally.
