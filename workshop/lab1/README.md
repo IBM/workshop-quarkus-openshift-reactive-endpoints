@@ -44,11 +44,11 @@ Open the [IBM Cloud Dashboard](https://cloud.ibm.com). In the row at the top swi
 
 The select 'OpenShift' in the burger menu in the upper left corner followed by 'Clusters'.
 
-![Select Open Shift in the menu](../../images/openshift-console-launch1.png)
+![](../../images/openshift-console-launch1.png)
 
 Click on your cluster.
 
-![C](../../images/openshift-console-launch2.png)
+![](../../images/openshift-console-launch2.png)
 
 Open the OpenShift web console.
 
