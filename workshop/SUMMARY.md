@@ -19,10 +19,11 @@
 
 ### Workshop Resources
 
-* [Source code](admin-guide/README.md)
+* [Cloud-Native-Starter project](https://github.com/IBM/cloud-native-starter/tree/master/reactive)
+* [Cloud-Native-Starter project reactive](https://github.com/IBM/cloud-native-starter)
 
 ### Resources
 
-* [Reactive Messaging with Quarkus on OpenShift](https://nheidloff.github.io/workshop-quarkus-openshift-reactive-messaging/)
 * [Blog posts related to reactive in the Cloud-Native-Starter project](https://github.com/IBM/cloud-native-starter/tree/master/reactive#blogs)
+* [Workshop: Reactive Messaging with Quarkus on OpenShift](https://github.com/IBM/workshop-quarkus-openshift-reactive-messaging)
 
