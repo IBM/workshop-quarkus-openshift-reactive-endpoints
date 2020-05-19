@@ -1,16 +1,3 @@
-Navigator:
-* [Workshop Description](https://ibm.github.io/workshop-quarkus-openshift-reactive-endpoints/)
-* Lab 1: [Create your Cloud Environment](../lab1/README.md)
-* Lab 2: [Deploy Kafka via Script](../lab2/README.md)
-* Lab 3: [Deploy Postgres via Operator](../lab3/README.md)
-* Lab 4: [Deploy Sample Application](../lab4/README.md)
-* Lab 5: [Develop reactive Endpoints](../lab5/README.md)
-* Lab 6: [Invoke Endpoints reactively](../lab6/README.md)
-* Lab 7: [Deploy Service to OpenShift](../lab7/README.md)
-* Lab 8 (optional): Use distributed Logging
-
----
-
 # Lab 8 (optional): Use distributed Logging
 
 Cloud native applications based on microservices contain many parts that create logs. A logging service that is able to collect all distributed logs in one place is a highly recommended tool. There are many logging solutions that you can install directly into your Kubernetes or OpenShift cluster. But then you have an additional application that needs to be maintained and one that needs persistent storage as well to store logs for a period of time. 

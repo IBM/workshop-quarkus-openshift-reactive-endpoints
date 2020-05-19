@@ -1,16 +1,3 @@
-Navigator:
-* [Workshop Description](https://ibm.github.io/workshop-quarkus-openshift-reactive-endpoints/)
-* Lab 1: [Create your Cloud Environment](../lab1/README.md)
-* Lab 2: [Deploy Kafka via Script](../lab2/README.md)
-* Lab 3: [Deploy Postgres via Operator](../lab3/README.md)
-* Lab 4: [Deploy Sample Application](../lab4/README.md)
-* Lab 5: Develop reactive Endpoints
-* Lab 6: [Invoke Endpoints reactively](../lab6/README.md)
-* Lab 7: [Deploy Service to OpenShift](../lab7/README.md)
-* Lab 8 (optional): [Use distributed Logging](../lab8/README.md)
-
----
-
 # Lab 5: Develop reactive Endpoints
 
 In this lab you will learn how to develop reactive endpoints with standard Java functionality via [CompletionStage](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html) and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html). 

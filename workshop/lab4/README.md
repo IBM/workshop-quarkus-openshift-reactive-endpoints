@@ -1,16 +1,3 @@
-Navigator:
-* [Workshop Description](https://ibm.github.io/workshop-quarkus-openshift-reactive-endpoints/)
-* Lab 1: [Create your Cloud Environment](lab1/README.md)
-* Lab 2: [Deploy Kafka via Script](../lab2/README.md)
-* Lab 3: [Deploy Postgres via Operator](../lab3/README.md)
-* Lab 4: Deploy Sample Application
-* Lab 5: [Develop reactive Endpoints](../lab5/README.md)
-* Lab 6: [Invoke Endpoints reactively](../lab6/README.md)
-* Lab 7: [Deploy Service to OpenShift](../lab7/README.md)
-* Lab 8 (optional): [Use distributed Logging](../lab8/README.md)
-
----
-
 # Lab 4: Deploy Sample Application
 
 In this lab you'll deploy the sample application which consists of three microservices and a web application.
