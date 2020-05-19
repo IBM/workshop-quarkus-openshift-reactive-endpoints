@@ -14,7 +14,7 @@ The reactive stack of this sample provides response times that take less than ha
 
 ### Architecture
 
-The following architecture diagrams do explain the complete flow.
+The following architecture diagrams do explain the complete flow of the workshop.
 
 * The 'API Client' invokes the 'Web-API' service which implements a backend-for-frontend pattern. 
 * The 'Web-API' service invokes the two microservices 'Authors' and 'Articles'. The 'Articles' service reads data from Postgres.
