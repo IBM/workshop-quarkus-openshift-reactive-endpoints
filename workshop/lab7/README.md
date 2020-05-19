@@ -1,13 +1,13 @@
 Navigator:
 * [Workshop Description](https://ibm.github.io/workshop-quarkus-openshift-reactive-endpoints/)
-* Lab 1: [Create your Cloud Environment](lab1.md)
-* Lab 2: [Deploy Kafka via Script](lab2.md)
-* Lab 3: [Deploy Postgres via Operator](lab3.md)
-* Lab 4: [Deploy Sample Application](lab4.md)
-* Lab 5: [Develop reactive Endpoints](lab5.md)
-* Lab 6: [Invoke Endpoints reactively](lab6.md)
+* Lab 1: [Create your Cloud Environment](../lab1/README.md)
+* Lab 2: [Deploy Kafka via Script](../lab2/README.md)
+* Lab 3: [Deploy Postgres via Operator](../lab3/README.md)
+* Lab 4: [Deploy Sample Application](../lab4/README.md)
+* Lab 5: [Develop reactive Endpoints](../lab5/README.md)
+* Lab 6: [Invoke Endpoints reactively](../lab6/README.md)
 * Lab 7: Deploy Service to OpenShift
-* Lab 8 (optional): [Use distributed Logging](lab8.md)
+* Lab 8 (optional): [Use distributed Logging](../lab8/README.md)
 
 ---
 
@@ -81,7 +81,7 @@ $ oc new-build --name my-web-api-reactive --binary --strategy docker
 $ oc start-build my-web-api-reactive --from-dir=.
 ```
 
-![](../images/deploy-my-web-api.png)
+![](../../images/deploy-my-web-api.png)
 
 The build will take some time. In the meantime you can check out the Dockerfile, for example to see how the ubi-minimal image is used.
 
@@ -92,37 +92,37 @@ $ cat Dockerfile
 
 Open the OpenShift Web Console and wait for the build to be completed.
 
-![](../images/deploy2.png)
+![](../../images/deploy2.png)
 
 The output of the build will be a new image stream.
 
-![](../images/deploy3.png)
+![](../../images/deploy3.png)
 
 ### Step 3: Deploy and test the Image
 
 In the 'Developer' view, click on 'Add' and then 'Container Image'.
 
-![](../images/deploy4.png)
+![](../../images/deploy4.png)
 
 On the next page choose 'Image from internal registry' and define the project, stream name and tag.
 
-![](../images/deploy5.png)
+![](../../images/deploy5.png)
 
 Leave all other defaults including 'Create a route' and click 'Create'.
 
-![](../images/deploy6.png)
+![](../../images/deploy6.png)
 
 On the next page click on 'my-web-api-reactive'.
 
-![](../images/deploy7.png)
+![](../../images/deploy7.png)
 
 Wait until the pod is running. After this click on the route at the bottom.
 
-![](../images/deploy8.png)
+![](../../images/deploy8.png)
 
 This will display the home page of the generated service. To invoke your endpoint append 'articles' to the URL.
 
-![](../images/deploy10.png)
+![](../../images/deploy10.png)
 
 ---
 
