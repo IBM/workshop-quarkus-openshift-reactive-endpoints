@@ -4,25 +4,24 @@
 <!-- All headings MUST be THREE hashmarks (###) -->
 <!-- Indented bullets (4 spaces) will make the first line be a section -->
 
-### Setup IBM Cloud Environment
+### Setup the IBM Cloud Environment
 
-* [Lab 1 - Introduction](lab1/README.md)
-* [Lab 1 - Access the Cluster](lab1/CLOUD_ACCOUNT.md)
-
-* [Lab 1 - Access IBM Cloud Shell](lab1/CLOUD_ACCOUNT.md)
+* [Introduction](pre-work/README.md)
+* [Access the Cluster](pre-work/CLOUD_ACCOUNT.md)
+* [Access IBM Cloud Shell](pre-work/CLOUD_ACCOUNT.md)
 
 ### Setup the sample application
 
-* [Lab 2 - Deploy Kafka via Script](lab2/README.md)
-* [Lab 3 - Deploy Postgres via Operator](lab3/README.md) 
-* [Lab 4 - Deploy Sample Application](lab4/README.md)
+* [Exercise 1 - Deploy Kafka via Script](exercise-01/README.md)
+* [Exercise 2 - Deploy Postgres via Operator](exercise-02/README.md) 
+* [Exercise 3 - Deploy Sample Application](exercise-03/README.md)
 
 ### Build new version of the Microservice
 
-* [Lab 5 - Develop reactive Endpoints](lab5/README.md) 
-* [Lab 6 - Invoke Endpoints reactively](lab6/README.md)
-* [Lab 7 - Deploy Service to OpenShift](lab7/README.md)
-* [Lab 8 - Use distributed Logging](lab8/README.md) 
+* [Exercise 4 - Develop reactive Endpoints](exercise-04/README.md) 
+* [Exercise 5 - Invoke Endpoints reactively](exercise-05/README.md)
+* [Exercise 6 - Deploy Service to OpenShift](exercise-06/README.md)
+* [Exercise 7 - Use distributed Logging](exercise-07/README.md) 
 
 ### Resources
 

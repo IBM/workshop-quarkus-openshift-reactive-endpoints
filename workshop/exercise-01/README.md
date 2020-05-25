@@ -1,4 +1,4 @@
-# Lab 2: Deploy Kafka via Script
+# Exercise 1: Deploy Kafka via Script
 
 In this short lab you'll deploy Kafka via a script.
 
@@ -23,4 +23,4 @@ It takes a couple of minutes until all pods have been started. You can check the
 
 ---
 
-__Continue with [Lab 3: Deploy Postgres via Operator](lab3.md)__
+__Continue with [Exercise 02: Deploy Postgres via Operator](exercise-02.md)__

@@ -1,4 +1,4 @@
-# Lab 4: Deploy Sample Application
+# Exercise 3: Deploy Sample Application
 
 In this lab you'll deploy the sample application which consists of three microservices and a web application.
 
@@ -74,4 +74,4 @@ Open the web application in a browser. Then invoke the curl post command. The we
 
 ---
 
-__Continue with [Lab 5: Develop reactive Endpoints](lab5.md)__
+__Continue with [Exercise 4: Develop reactive Endpoints](exercise-04.md)__

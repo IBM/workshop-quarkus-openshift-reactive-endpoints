@@ -1,4 +1,4 @@
-# Lab 6: Invoke Endpoints reactively
+# Exercise 5: Invoke Endpoints reactively
 
 In this lab you will learn how to invoke REST APIs reactively with [MicroProfile Rest Client](https://github.com/eclipse/microprofile-rest-client).
 
@@ -305,4 +305,4 @@ Unfortunately this capability is only available in Java 9+. Since the current ve
 
 ---
 
-__Continue with [Lab 7: Deploy Service to OpenShift](lab7.md)__
+__Continue with [Exercise 06: Deploy Service to OpenShift](exercise-06.md)__

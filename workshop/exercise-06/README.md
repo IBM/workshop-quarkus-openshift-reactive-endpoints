@@ -1,4 +1,4 @@
-# Lab 7: Deploy Service to OpenShift
+# Exercise 6: Deploy Service to OpenShift
 
 In this lab you will deploy your 'My-Web-API' service to OpenShift.
 
@@ -113,4 +113,4 @@ This will display the home page of the generated service. To invoke your endpoin
 
 ---
 
-__Continue with [Lab 8: Use distributed Logging](lab8.md)__
+__Continue with [Exercise 7: Use distributed Logging](exercise-07.md)__

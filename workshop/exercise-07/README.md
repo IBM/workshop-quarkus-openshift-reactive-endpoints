@@ -1,4 +1,4 @@
-# Lab 8 (optional): Use distributed Logging
+# Exercise 6 (optional): Use distributed Logging
 
 Cloud native applications based on microservices contain many parts that create logs. A logging service that is able to collect all distributed logs in one place is a highly recommended tool. There are many logging solutions that you can install directly into your Kubernetes or OpenShift cluster. But then you have an additional application that needs to be maintained and one that needs persistent storage as well to store logs for a period of time. 
 

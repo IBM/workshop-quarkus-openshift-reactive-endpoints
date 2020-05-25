@@ -1,4 +1,4 @@
-# Lab 3: Deploy Postgres via Operator
+# Execise 2: Deploy Postgres via Operator
 
 In this lab you'll deploy Postgres and set up a database which is used by the 'Articles' service.
 
@@ -48,4 +48,4 @@ On the 'Pods' page select the project 'postgres'. Make sure the pod 'database-ar
 
 ---
 
-__Continue with [Lab 4: Deploy Sample Application](lab4.md)__
+__Continue with [Exercise 3: Deploy Sample Application](exercise-03.md)__

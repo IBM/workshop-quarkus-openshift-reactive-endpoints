@@ -1,4 +1,4 @@
-# Lab 5: Develop reactive Endpoints
+# Exercise 4: Develop reactive Endpoints
 
 In this lab you will learn how to develop reactive endpoints with standard Java functionality via [CompletionStage](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html) and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html). 
 
@@ -289,4 +289,4 @@ If you want to try out 'exceptionally' uncomment the line where the InvalidInput
 
 ---
 
-__Continue with [Lab 6: Invoke Endpoints reactively](lab6.md)__
+__Continue with [Exercise 05: Invoke Endpoints reactively](exercise-05.md)__
