@@ -66,6 +66,3 @@ $ oc login https://c1XX-XX-X.containers.cloud.ibm.com:XXXXX --token=xxxxxx'
 
 ![](../../images/openshift-login3.png)
 
----
-
-__Continue with [Exercise 1: Deploy Kafka via Script](exercise-01.md)__

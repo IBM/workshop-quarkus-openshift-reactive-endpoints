@@ -303,6 +303,3 @@ The method 'orTimeout' doesn't exist in the CompletionStage interface. You need 
 
 Unfortunately this capability is only available in Java 9+. Since the current version of the Cloud Shell supports only Java 8, we cannot run it here. But you can obviously run it locally or in a container on OpenShift.
 
----
-
-__Continue with [Exercise 06: Deploy Service to OpenShift](exercise-06.md)__

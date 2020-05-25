@@ -21,6 +21,4 @@ It takes a couple of minutes until all pods have been started. You can check the
 
 ![](../../images/kafka-deployment2.png)
 
----
 
-__Continue with [Exercise 02: Deploy Postgres via Operator](exercise-02.md)__

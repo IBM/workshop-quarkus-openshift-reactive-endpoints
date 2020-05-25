@@ -35,5 +35,3 @@ Under **Clusters**, click on the cluster that has been assigned to you.
 Launch the **OpenShift web console** and have a look around! You can come back to this dashboard throughout your lab.
 
 ![](../../images/cluster-launch-console.png)
-
-__Continue with [Setup IBM Cloud Shell](./CLOUD_SHELL.md)__

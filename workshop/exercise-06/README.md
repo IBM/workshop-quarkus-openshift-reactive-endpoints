@@ -110,7 +110,3 @@ Wait until the pod is running. After this click on the route at the bottom.
 This will display the home page of the generated service. To invoke your endpoint append 'articles' to the URL.
 
 ![](../../images/deploy10.png)
-
----
-
-__Continue with [Exercise 7: Use distributed Logging](exercise-07.md)__

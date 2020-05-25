@@ -45,7 +45,3 @@ Edit the yaml. The database name needs to be changed to  'database-articles'. Th
 On the 'Pods' page select the project 'postgres'. Make sure the pod 'database-articles....' is running.
 
 ![](../../images/setup-postgres10.png)
-
----
-
-__Continue with [Exercise 3: Deploy Sample Application](exercise-03.md)__

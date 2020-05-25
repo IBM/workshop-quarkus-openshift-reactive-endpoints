@@ -72,6 +72,3 @@ Open the web application in a browser. Then invoke the curl post command. The we
 
 ![](../../images/verify-app6.png)
 
----
-
-__Continue with [Exercise 4: Develop reactive Endpoints](exercise-04.md)__

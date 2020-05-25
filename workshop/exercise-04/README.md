@@ -287,6 +287,3 @@ If you want to try out 'exceptionally' uncomment the line where the InvalidInput
     }
 ```
 
----
-
-__Continue with [Exercise 05: Invoke Endpoints reactively](exercise-05.md)__
