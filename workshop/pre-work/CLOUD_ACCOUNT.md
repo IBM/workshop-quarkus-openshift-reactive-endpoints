@@ -36,4 +36,4 @@ Launch the **OpenShift web console** and have a look around! You can come back t
 
 ![](../../images/cluster-launch-console.png)
 
-__Continue with [Lab 1: Setup IBM Cloud Shell](CLOUD_SHELL.md)__
+__Continue with [Setup IBM Cloud Shell](./CLOUD_SHELL.md)__
