@@ -4,9 +4,15 @@
 <!-- All headings MUST be THREE hashmarks (###) -->
 <!-- Indented bullets (4 spaces) will make the first line be a section -->
 
+### Setup IBM Cloud Environment
+
+* [Lab 1 - Introduction](lab1/README.md)
+* [Lab 1 - Access the Cluster](lab1/CLOUD_ACCOUNT.md)
+
+* [Lab 1 - Access IBM Cloud Shell](lab1/CLOUD_ACCOUNT.md)
+
 ### Setup the sample application
 
-* [Lab 1 - Setup IBM Cloud Environment](lab1/README.md)
 * [Lab 2 - Deploy Kafka via Script](lab2/README.md)
 * [Lab 3 - Deploy Postgres via Operator](lab3/README.md) 
 * [Lab 4 - Deploy Sample Application](lab4/README.md)
