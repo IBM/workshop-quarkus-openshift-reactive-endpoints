@@ -7,4 +7,4 @@ To use OpenShift on IBM Cloud and LogDNA in lab 8, an [IBM Cloud account](http:/
 We will use preconfigured [OpenShift on IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster) clusters in this hands-on workshop.
 
 
-__Continue with [Lab 1: Access the Cluster](CLOUD_ACCOUNT.md)__
+__Continue with [Access the Cluster](CLOUD_ACCOUNT.md)__
