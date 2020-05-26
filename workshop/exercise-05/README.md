@@ -1,23 +1,10 @@
-Navigator:
-* [Workshop Description](https://ibm.github.io/workshop-quarkus-openshift-reactive-endpoints/)
-* Lab 1: [Create your Cloud Environment](lab1.md)
-* Lab 2: [Deploy Kafka via Script](lab2.md)
-* Lab 3: [Deploy Postgres via Operator](lab3.md)
-* Lab 4: [Deploy Sample Application](lab4.md)
-* Lab 5: [Develop reactive Endpoints](lab5.md)
-* Lab 6: Invoke Endpoints reactively
-* Lab 7: [Deploy Service to OpenShift](lab7.md)
-* Lab 8 (optional): [Use distributed Logging](lab8.md)
-
----
-
-# Lab 6: Invoke Endpoints reactively
+# Exercise 5: Invoke Endpoints reactively
 
 In this lab you will learn how to invoke REST APIs reactively with [MicroProfile Rest Client](https://github.com/eclipse/microprofile-rest-client).
 
 You will extend the service from the previous lab to invoke the 'Articles' service which runs on OpenShift.
 
-![](../images/lab6.png)
+![](../../images/lab6.png)
 
 ### Step 1: Add the MicroProfile Extension
 
@@ -28,7 +15,7 @@ $ cd ~/cloud-native-starter/reactive/rest-json-quickstart
 $ ./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client"
 ```
 
-![](../images/extension.png)
+![](../../images/extension.png)
 
 ### Step 2: Create Exception Handling Classes
 
@@ -193,7 +180,7 @@ $ cd ~/cloud-native-starter/reactive
 $ os4-scripts/show-urls.sh
 ```
 
-![](../images/get-url.png)
+![](../../images/get-url.png)
 
 Copy and paste the URL in the editor as the value of the varialbe 'urlArticlesServiceOpenShift'.
 
@@ -296,7 +283,7 @@ $ curl http://localhost:8080/articles
 
 You should see the following response.
 
-![](../images/result-articles.png)
+![](../../images/result-articles.png)
 
 ### Step 6: Understand Timeouts
 
@@ -316,6 +303,3 @@ The method 'orTimeout' doesn't exist in the CompletionStage interface. You need 
 
 Unfortunately this capability is only available in Java 9+. Since the current version of the Cloud Shell supports only Java 8, we cannot run it here. But you can obviously run it locally or in a container on OpenShift.
 
----
-
-__Continue with [Lab 7: Deploy Service to OpenShift](lab7.md)__
