@@ -15,6 +15,8 @@
 * [Exercise 1 - Deploy Kafka via Script](exercise-01/README.md)
 * [Exercise 2 - Deploy Postgres via Operator](exercise-02/README.md) 
 * [Exercise 3 - Deploy Sample Application](exercise-03/README.md)
+* [YouTube - How to setup the sample application (optional)](https://suedbroecker.net/2020/05/26/how-to-setup-the-reactive-cloud-native-starter-sample-application-on-openshift-in-ibm-cloud/)
+
 
 ### Build new version of the Microservice
 
