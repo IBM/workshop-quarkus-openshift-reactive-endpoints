@@ -23,7 +23,11 @@
 * [Exercise 4 - Develop reactive Endpoints](exercise-04/README.md) 
 * [Exercise 5 - Invoke Endpoints reactively](exercise-05/README.md)
 * [Exercise 6 - Deploy Service to OpenShift](exercise-06/README.md)
-* [Exercise 7 - Use distributed Logging](exercise-07/README.md) 
+* [Exercise 7 - Use distributed Logging (optional)](exercise-07/README.md) 
+
+### YouTube Videos related to the Exercises
+
+* [Exercise 4 - Develop reactive Endpoints (optional)](https://suedbroecker.net/2020/06/10/develop-reactive-endpoints-with-quarkus/)
 
 ### Resources
 
