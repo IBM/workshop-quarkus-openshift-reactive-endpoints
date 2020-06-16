@@ -28,6 +28,7 @@
 ### YouTube Videos related to the Exercises
 
 * [Exercise 4 - Develop reactive Endpoints (optional)](https://suedbroecker.net/2020/06/10/develop-reactive-endpoints-with-quarkus/)
+* [Exercise 5 - Invoke Endpoints reactively (optional)](https://suedbroecker.net/2020/06/15/invoke-reactive-endpoints-with-quarkus/)
 
 ### Resources
 
