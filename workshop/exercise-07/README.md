@@ -51,7 +51,7 @@ Click 'View LogDNA'.
 
 ![](../../images/log8.png)
 
-In Lab 4 [Deploying Sample Application](lab4.md) you have deployed an instance of the 'Articles' service called 'articles-reactive'. We will check LogDNA for output from this instance. Execute the following commands in the Cloud Shell:
+In Exercise 4 [Deploying Sample Application](../exercise-03/README.md) you have deployed an instance of the 'Articles' service called 'articles-reactive'. We will check LogDNA for output from this instance. Execute the following commands in the Cloud Shell:
 
 ```
 $ oc project cloud-native-starter
