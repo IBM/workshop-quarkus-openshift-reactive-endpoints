@@ -11,9 +11,9 @@ $ bash ~/cloud-native-starter/reactive/os4-scripts/deploy-example.sh
 ```
 
 The deployment takes approximately `10 minutes` and the script shows the links to the Services and Web-App at the end of the execution.
-The gif shows the execution of the script and the test of the application.
+The 35 sec YouTube video shows the execution of the script and the test of the application.
 
-![](../../images/setup-example-application.gif)
+[![](https://img.youtube.com/vi/RYGCrsR37Go/0.jpg)](https://www.youtube.com/watch?v=RYGCrsR37Go "Click play on youtube")
 
 
 ### Step 2: Launch the web application
