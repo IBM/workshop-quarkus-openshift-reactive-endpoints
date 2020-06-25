@@ -10,7 +10,8 @@ Invoke the following command:
 $ bash ~/cloud-native-starter/reactive/os4-scripts/deploy-example.sh 
 ```
 
-The deployment takes approximately `10 minutes` and the script shows the links to the Services and Web-App at the end of the execution. 
+The deployment takes approximately `10 minutes` and the script shows the links to the Services and Web-App at the end of the execution.
+The gif shows the execution of the script and the test of the application.
 
 ![](../../images/setup-example-application.gif)
 
