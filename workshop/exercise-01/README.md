@@ -1,24 +1,63 @@
-# Exercise 1: Deploy Kafka via Script
+# Exercise 1: Deploy the example application via script
 
-In this short lab you'll deploy Kafka via a script.
+In this short lab you'll deploy Kafka, PostgreSQL, and the Microservices of the reactive example via a script and test the example application.
 
-### Step 1: Deploy Kafka
+### Step 1: Deploy the example application
 
 Invoke the following command:
 
 ```
-$ ~/cloud-native-starter/reactive/os4-scripts/deploy-kafka-oc-only.sh 
+$ bash ~/cloud-native-starter/reactive/os4-scripts/deploy-example.sh 
 ```
 
-As result you will see this:
+The deployment takes approximately `10 minutes` and the scripts shows the links to the Services and Web-App at the end of the execution. 
 
-![](../../images/kafka-deployment.png)
+![](../../images/setup-example-application.gif)
 
 
-### Step 2: Verify the Installation 
+### Step 2: Launch the web application
 
-It takes a couple of minutes until all pods have been started. You can check the status via the OpenShift web console. On the 'Pods' page select the 'kafka' project.
+To launch the web application get the URL from the last output and open the application in a browser.
+
+![](../../images/web-app-url.png)
+
+### Step 3: Copy the curl command
+
+Copy the curl command to create a new article and insert it into your current terminal session.
+
+![](../../images/create-articles-curl.png)
+
+### Step 4: Test the example application
+
+Open the web application in a browser. Then invoke the curl post command. The web application should show the new entry.
+
+![](../../images/verify-app6.png)
+
+### Step 5 (optional): Verify the deployed PostgreSQL
+
+You can check the status via the OpenShift web console. On the 'Pods' page select the 'postgres' project.
+
+![](../../images/postgres-verify.png)
+
+### Step 6 (optional): Verify the deployed Kafka
+
+You can check the status via the OpenShift web console. On the 'Pods' page select the 'kafka' project.
 
 ![](../../images/kafka-deployment2.png)
+
+### Step 7 (optional): Verify the deployed Services and Web Application
+
+Make sure all four pods in the 'cloud-native-starter' project are running.
+
+![](../../images/verify-app1.png)
+
+The previous steps have create build configs, builds and image streams.
+
+![](../../images/verify-app2.png)
+
+![](../../images/verify-app3.png)
+
+![](../../images/verify-app4.png)
+
 
 

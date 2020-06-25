@@ -1,305 +1,83 @@
-# Exercise 5: Invoke Endpoints reactively
+# Exercise 5 (optional): Use distributed Logging
 
-In this lab you will learn how to invoke REST APIs reactively with [MicroProfile Rest Client](https://github.com/eclipse/microprofile-rest-client).
+Cloud native applications based on microservices contain many parts that create logs. A logging service that is able to collect all distributed logs in one place is a highly recommended tool. There are many logging solutions that you can install directly into your Kubernetes or OpenShift cluster. But then you have an additional application that needs to be maintained and one that needs persistent storage as well to store logs for a period of time. 
 
-You will extend the service from the previous lab to invoke the 'Articles' service which runs on OpenShift.
+IBM Cloud offers "Logging as a Service" in the form of [IBM Log Analysis with LogDNA](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-getting-started#getting-started). It offers features to filter, search, and tail log data, define alerts, and design custom views to monitor application and system logs. You can test "IBM Log Analysis with LogDNA" for free with somewhat limited capabilities and we will show you in this lab how to connect your OpenShift cluster to an instance of it.
 
-![](../../images/lab6.png)
+Official documentation for setting up the LogDNA agent for an OpenShift cluster is [here](https://cloud.ibm.com/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-config_agent_os_cluster).
 
-### Step 1: Add the MicroProfile Extension
+For the following instructions use the IBM Cloud Shell to enter the commands.
 
-First the MicroProfile library needs to be added to the project.
+### Step 1: Create LogDNA Service
 
-```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart
-$ ./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client"
-```
+In your browser log in to the [IBM Cloud dashboard](https://cloud.ibm.com/). Make sure you are using **your own account**. From the 'burger menu' in the upper left corner select 'Observability'.
 
-![](../../images/extension.png)
+![](../../images/log1.png)
 
-### Step 2: Create Exception Handling Classes
+Create an 'IBM Log Analysis with LogDNA' instance by clicking on 'Create new'.
 
-The great thing about the MicroProfile REST Client is that it makes it really easy to invoke remote APIs of other services. As developer you don't have to worry about serialization/deserialization/etc. All you need to do is to define interfaces and some configuration.
+![](../../images/log2.png)
 
-In order to map HTTP response codes to Java exceptions, a ResponseExceptionMapper is used. Let's take a look.
+On the 'Create' tab leave all defaults. All you have to do is to create the big blue 'Create' button.
 
-Create the class [InvalidInputParameter.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/InvalidInputParameter.java). This exception is thrown by the 'Articles' service when the amount parameter is not correct, for example if the value is negative.
+![](../../images/log3.png)
 
-```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ touch InvalidInputParameter.java
-$ nano InvalidInputParameter.java
-```
+### Step 2: Configure LogDNA
 
-```
-package org.acme.rest.json;
+Select 'Edit log sources'.
 
-public class InvalidInputParameter extends RuntimeException {
+![](../../images/log4.png)
 
-	private static final long serialVersionUID = 2L;
+Select the 'OpenShift' tab. Copy, paste, and execute the commands into your IBM Cloud Shell:
 
-	public InvalidInputParameter() {
-	}
+![](../../images/log5.png)
 
-	public InvalidInputParameter(String message) {
-		super(message);
-	}
-}
-```
 
-Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
-
-Create the class [ExceptionMapperArticles.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ExceptionMapperArticles.java). In this class the HTTP response code '204' is mapped to the InvalidInputParameter exception.
-
+In the Cloud Shell check that the logging agent is running.
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ touch ExceptionMapperArticles.java
-$ nano ExceptionMapperArticles.java
+$ oc get all -n ibm-observe
 ```
 
-```
-package org.acme.rest.json;
+![](../../images/log6.png)
 
-import org.eclipse.microprofile.rest.client.ext.ResponseExceptionMapper;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.Provider;
+### Step 3: Use LogDNA
 
-@Provider
-public class ExceptionMapperArticles implements ResponseExceptionMapper<InvalidInputParameter> {
+Go back to the [IBM Cloud dashboard](https://cloud.ibm.com/). Make sure you are using your own account. From the 'burger menu' in the upper left corner select 'Observability' and then 'Logging'.
 
-    @Override
-    public boolean handles(int status, MultivaluedMap<String, Object> headers) {
-        return status == 204;
-    }
+![](../../images/log7.png)
 
-    @Override
-    public InvalidInputParameter toThrowable(Response response) {
-        if (response.getStatus() == 204)
-            return new InvalidInputParameter();
-        return null;
-    }
-}
-```
+Click 'View LogDNA'.
 
-Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
+![](../../images/log8.png)
 
-### Step 3: Create the ArticlesService Interface
-
-Next an interface of the service that is supposed to be invoked is defined. The implementation of this interface is provided magically by MicroProfile.
-
-Create the class [ArticlesService.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticlesService.java). To keep this as simple as possible, there is only one method to read a list of articles.
-
-Note that the annotations @Get and @Produces can be confusing. These are the JAX-RS annotations you used in the previous lab. This time however they are not used to expose REST APIs, but to define how to invoke remote APIs.
-
-Also note that the service does not return a Response object directly. Instead it returns a CompletionStage object with a Response object as described earlier. With the MicroProfile Rest Client you can invoke services both synchronously as well as asynchronously.
+In Exercise 1 [Deploying Sample Application](../exercise-05/README.md) you have deployed an instance of the 'Articles' service called 'articles-reactive'. We will check LogDNA for output from this instance. Execute the following commands in the Cloud Shell:
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ touch ArticlesService.java
-$ nano ArticlesService.java
+$ oc project cloud-native-starter
+$ watch curl -X GET "http://$(oc get route articles-reactive -o jsonpath={.spec.host})/v2/articles?amount=10" -H "accept: application/json"  
 ```
+   
+The "watch" command will constantly (every 2 seconds) request articles information.
 
-```
-package org.acme.rest.json;
+Refresh your browser tab with the LogDNA dashboard and insert in the search field "getArticlesReactive".
 
-import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import java.util.List;
-import java.util.concurrent.CompletionStage;
+![](../../images/log9.png)
 
-@RegisterProvider(ExceptionMapperArticles.class)
-public interface ArticlesService {
+Note: If you don't see "getArticlesReactive" wait a little longer (with the free/lite version it can take several minutes before data shows up), then refresh the browser tab of the LogDNA dashboard again.
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    CompletionStage<List<Article>> getArticlesFromService(@QueryParam("amount") int amount);
-}
-```
+Select 'Unsaved View' and then 'Save as new/alert'.
 
-Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
+![](../../images/log10.png)
 
-### Step 4: Create the Code to invoke Services 
+Give the view a ane and press 'Save View'.
 
-Now let's write the code to invoke the 'Articles' service. Basically all you need to do is to define the URL of the endpoint and invoke a Java method. Check out the code below, especially the invocation of the service via 'articlesService.getArticlesFromService(amount)'.
+![](../../images/log11.png)
 
-Create the class [ArticlesDataAccess.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticlesDataAccess.java).
+From now the new view is available under 'Views'.
 
+![](../../images/log12.png)
 
-```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ touch ArticlesDataAccess.java
-$ nano ArticlesDataAccess.java
-```
+---
 
-```
-package org.acme.rest.json;
-
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.eclipse.microprofile.rest.client.RestClientBuilder;
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.core.UriBuilder;
-import java.net.URI;
-import java.util.List;
-import java.util.concurrent.CompletionStage;
-import java.util.concurrent.TimeUnit;
-
-@ApplicationScoped
-public class ArticlesDataAccess {
-
-    private static final int MAXIMAL_DURATION = 5000;
-
-    // this configuration needs to be used when running this web-api service locally
-    // run the following command to get this URL: os4scripts/show-urls.sh
-    private static String urlArticlesServiceOpenShift = "http://articles-reactive-cloud-native-starter.niklas-heidloff-os-fra-162e406f043e20da9b0ef0731954a894-0000.eu-de.containers.appdomain.cloud/v2/articles?amount=10";
-
-    private ArticlesService articlesService;
-
-    @PostConstruct
-    void initialize() {
-        URI apiUrl = UriBuilder.fromUri(urlArticlesServiceOpenShift).build();
-        articlesService = RestClientBuilder.newBuilder()
-                .baseUri(apiUrl)
-                .register(ExceptionMapperArticles.class)
-                .build(ArticlesService.class);
-    }
-
-    public CompletionStage<List<Article>> getArticlesReactive(int amount) {
-        return articlesService.getArticlesFromService(amount);
-    }
-}
-```
-
-In a second terminal run the following command to get the URL of your 'Articles' service.
-
-```
-$ cd ~/cloud-native-starter/reactive
-$ os4-scripts/show-urls.sh
-```
-
-![](../../images/get-url.png)
-
-Copy and paste the URL in the editor as the value of the varialbe 'urlArticlesServiceOpenShift'.
-
-Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
-
-In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous lab to invoke the actual service rather than returning a sample article.
-
-```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ rm ArticleResource.java
-$ touch ArticleResource.java
-$ nano ArticleResource.java
-```
-
-```
-package org.acme.rest.json;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.inject.Inject;
-import javax.json.JsonArray;
-import javax.json.stream.JsonCollectors;
-import javax.ws.rs.core.Response;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionStage;
-import javax.json.Json;
-import javax.json.JsonObject;
-import java.util.ArrayList;
-
-@Path("/articles")
-public class ArticleResource {
-
-    @Inject
-    ArticlesDataAccess articlesDataAccess;
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public CompletionStage<Response> getArticles() {
-        
-        CompletableFuture<Response> future = new CompletableFuture<Response>();        
-
-        articlesDataAccess.getArticlesReactive(10).thenApply(articles -> {
-            JsonArray articlesAsJson;
-            articlesAsJson = articles
-                                .stream()
-                                .map(article -> createJsonArticle(article))
-                                .collect(JsonCollectors.toJsonArray());            
-            
-            return Response.ok(articlesAsJson).build();
-        }).exceptionally(throwable -> {
-            if (throwable.getCause().toString().equals(InvalidInputParameter.class.getName()))
-                return Response.status(Response.Status.BAD_REQUEST).build();
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-        }).whenComplete((response, e) -> {
-            future.complete(response);
-        });
-        return future;
-    }
-
-    static public List<Article> getSampleArticles() {
-        ArrayList<Article> articles = new ArrayList<Article>();
-        Article article = new Article();
-        article.author = "Niklas Heidloff";
-        article.title = "Super awesome article";
-        article.url = "http://heidloff.net";
-        article.id = "1";
-        article.creationDate = new java.util.Date().toString();
-        articles.add(article);
-        return articles;
-    }
-
-    static public JsonObject createJsonArticle(Article article) {
-        return Json.createObjectBuilder()
-                .add("id", article.id)
-                .add("title", article.title)
-                .add("url", article.url)
-                .add("author", article.author)
-                .build();
-    }
-}
-```
-
-### Step 5: Test the Code
-
-In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
-
-```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart
-$ ./mvnw compile quarkus:dev
-```
-
-Open a second terminal in the Cloud Shell and invoke the following command.
-
-```
-$ curl http://localhost:8080/articles
-```
-
-You should see the following response.
-
-![](../../images/result-articles.png)
-
-### Step 6: Understand Timeouts
-
-When writing asynchronous code it's important to consider timeouts, especially when you invoke third party services like databases or other microservices.
-
-Fortunately starting with Java 9 this is easy to handle. When invoking the 'Articles' service via MicroProfile, you can use the method 'orTimeout'. If it comes to a timeout, an exception is thrown which you can handled via 'exceptionally' as explained in the last lab.
-
-```
-public CompletionStage<List<Article>> getArticlesReactive(int amount) {
-  return articlesService.getArticlesFromService(amount)
-    .toCompletableFuture()
-    .orTimeout(MAXIMAL_DURATION, TimeUnit.MILLISECONDS);
-}
-```
-
-The method 'orTimeout' doesn't exist in the CompletionStage interface. You need to run 'toCompletableFuture' first to get an instance of CompletableFuture.
-
-Unfortunately this capability is only available in Java 9+. Since the current version of the Cloud Shell supports only Java 8, we cannot run it here. But you can obviously run it locally or in a container on OpenShift.
-
+__Congratulations! You’ve finished the workshop!__

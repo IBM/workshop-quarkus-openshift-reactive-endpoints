@@ -12,27 +12,24 @@
 
 ### Setup the sample application
 
-* [Exercise 1 - Deploy Kafka via Script](exercise-01/README.md)
-* [Exercise 2 - Deploy Postgres via Operator](exercise-02/README.md) 
-* [Exercise 3 - Deploy Sample Application](exercise-03/README.md)
+* [Exercise 1 - Deploy the example application via one script](exercise-01/README.md)
 * [YouTube - How to setup the sample application (optional)](https://suedbroecker.net/2020/05/26/how-to-setup-the-reactive-cloud-native-starter-sample-application-on-openshift-in-ibm-cloud/)
 
+### Build a new version of the Microservice
 
-### Build new version of the Microservice
-
-* [Exercise 4 - Develop reactive Endpoints](exercise-04/README.md) 
-* [Exercise 5 - Invoke Endpoints reactively](exercise-05/README.md)
-* [Exercise 6 - Deploy Service to OpenShift](exercise-06/README.md)
-* [Exercise 7 - Use distributed Logging (optional)](exercise-07/README.md) 
+* [Exercise 2 - Develop reactive Endpoints](exercise-02/README.md) 
+* [Exercise 3 - Invoke Endpoints reactively](exercise-03/README.md)
+* [Exercise 4 - Deploy Service to OpenShift](exercise-04/README.md)
+* [Exercise 5 (optional) - Use distributed Logging](exercise-05/README.md) 
 
 ### YouTube Videos related to the Exercises
 
-* [Exercise 4 - Develop reactive Endpoints (optional)](https://suedbroecker.net/2020/06/10/develop-reactive-endpoints-with-quarkus/)
-* [Exercise 5 - Invoke Endpoints reactively (optional)](https://suedbroecker.net/2020/06/15/invoke-reactive-endpoints-with-quarkus/)
-* [Exercise 6 - Deploy Service to OpenShift (optional)](https://suedbroecker.net/2020/06/17/deploy-a-microservice-to-openshift/)
-* [Exercise 7 - Use distributed Logging (optional)](https://suedbroecker.net/2020/06/18/use-distributed-logging-for-mircoservices/)
+* [Exercise 2 - Develop reactive Endpoints (optional)](https://suedbroecker.net/2020/06/10/develop-reactive-endpoints-with-quarkus/)
+* [Exercise 3 - Invoke Endpoints reactively (optional)](https://suedbroecker.net/2020/06/15/invoke-reactive-endpoints-with-quarkus/)
+* [Exercise 4 - Deploy Service to OpenShift (optional)](https://suedbroecker.net/2020/06/17/deploy-a-microservice-to-openshift/)
+* [Exercise 5 - Use distributed Logging (optional)](https://suedbroecker.net/2020/06/18/use-distributed-logging-for-mircoservices/)
 
-### Resources
+### Additional Resources
 
 * [Blog posts related to reactive](https://github.com/IBM/cloud-native-starter/tree/master/reactive#blogs)
 * [Workshop: Reactive Messaging with Quarkus on OpenShift](https://github.com/IBM/workshop-quarkus-openshift-reactive-messaging)
