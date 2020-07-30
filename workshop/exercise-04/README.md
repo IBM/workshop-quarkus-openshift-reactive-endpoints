@@ -1,6 +1,6 @@
-# Exercise 4: Deploy Service to OpenShift
+# Exercise 3: Deploy Service to OpenShift
 
-In this lab you will deploy your 'My-Web-API' service to OpenShift.
+In this exercise you will deploy your 'My-Web-API' service to OpenShift.
 
 ### Step 1: Change the Endpoint URL
 

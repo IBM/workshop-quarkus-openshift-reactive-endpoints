@@ -60,16 +60,16 @@ The introductory page of the workshop is broken down into the following sections
 
 ### Agenda
 
-These are the labs of this workshop, go through all of them in sequence, start with lab 1:
+These are the labs of this workshop, go through all of them in sequence, start with `Pre work:
 
 |   |   |
 | - | - |
 | [Pre work](pre-work/README.md) | Create your Cloud Environment |
-| [Exercise 1](exercise-01/README.md) | Deploy the example application via script |
-| [Exercise 2](exercise-02/README.md) | Develop reactive Endpoints |
-| [Exercise 3](exercise-03/README.md) | Invoke Endpoints reactively |
-| [Exercise 4](exercise-04/README.md) | Deploy Service to OpenShift |
-| [Exercise 5](exercise-05/README.md) | Use distributed Logging |
+| [Deploy application](exercise-01/README.md) | Deploy the example application via script |
+| [Exercise 1](exercise-02/README.md) | Develop reactive Endpoints |
+| [Exercise 2](exercise-03/README.md) | Invoke Endpoints reactively |
+| [Exercise 3](exercise-04/README.md) | Deploy Service to OpenShift |
+| [Exercise 4](exercise-05/README.md) | Use distributed Logging |
 
 
 ### Compatibility

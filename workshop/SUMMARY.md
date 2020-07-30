@@ -17,10 +17,10 @@
 
 ### Build a new version of the Microservice
 
-* [Exercise 2 - Develop reactive Endpoints](exercise-02/README.md) 
-* [Exercise 3 - Invoke Endpoints reactively](exercise-03/README.md)
-* [Exercise 4 - Deploy Service to OpenShift](exercise-04/README.md)
-* [Exercise 5 (optional) - Use distributed Logging](exercise-05/README.md) 
+* [Exercise 1 - Develop reactive Endpoints](exercise-02/README.md) 
+* [Exercise 2 - Invoke Endpoints reactively](exercise-03/README.md)
+* [Exercise 3 - Deploy Service to OpenShift](exercise-04/README.md)
+* [Exercise 4 (optional) - Use distributed Logging](exercise-05/README.md) 
 
 ### YouTube Videos related to the Exercises
 

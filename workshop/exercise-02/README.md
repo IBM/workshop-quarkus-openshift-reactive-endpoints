@@ -1,8 +1,8 @@
-# Exercise 2: Develop reactive Endpoints
+# Exercise 1: Develop reactive Endpoints
 
-In this lab you will learn how to develop reactive endpoints with standard Java functionality via [CompletionStage](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html) and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html). 
+In this exercise you will learn how to develop reactive endpoints with standard Java functionality via [CompletionStage](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html) and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html). 
 
-The service that will be created is an easier implementation of the 'Web-API' service as described earlier. In this lab the service only returns some dummy data and doesn't invoke other services.
+The service that will be created is an easier implementation of the 'Web-API' service as described earlier. In this exercise the service only returns some dummy data and doesn't invoke other services.
 
 ![](../../images/lab5.png)
 

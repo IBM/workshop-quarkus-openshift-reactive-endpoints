@@ -1,8 +1,8 @@
-# Exercise 3: Invoke Endpoints reactively
+# Exercise 2: Invoke Endpoints reactively
 
-In this lab you will learn how to invoke REST APIs reactively with [MicroProfile Rest Client](https://github.com/eclipse/microprofile-rest-client).
+In this exercise you will learn how to invoke REST APIs reactively with [MicroProfile Rest Client](https://github.com/eclipse/microprofile-rest-client).
 
-You will extend the service from the previous lab to invoke the 'Articles' service which runs on OpenShift.
+You will extend the service from the previous exercise to invoke the 'Articles' service which runs on OpenShift.
 
 ![](../../images/lab6.png)
 
@@ -91,7 +91,7 @@ Next an interface of the service that is supposed to be invoked is defined. The 
 
 Create the class [ArticlesService.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticlesService.java). To keep this as simple as possible, there is only one method to read a list of articles.
 
-Note that the annotations @Get and @Produces can be confusing. These are the JAX-RS annotations you used in the previous lab. This time however they are not used to expose REST APIs, but to define how to invoke remote APIs.
+Note that the annotations @Get and @Produces can be confusing. These are the JAX-RS annotations you used in the previous exercise. This time however they are not used to expose REST APIs, but to define how to invoke remote APIs.
 
 Also note that the service does not return a Response object directly. Instead it returns a CompletionStage object with a Response object as described earlier. With the MicroProfile Rest Client you can invoke services both synchronously as well as asynchronously.
 
@@ -186,7 +186,7 @@ Copy and paste the URL in the editor as the value of the varialbe 'urlArticlesSe
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous lab to invoke the actual service rather than returning a sample article.
+In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous exercise to invoke the actual service rather than returning a sample article.
 
 ```
 $ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
@@ -289,7 +289,7 @@ You should see the following response.
 
 When writing asynchronous code it's important to consider timeouts, especially when you invoke third party services like databases or other microservices.
 
-Fortunately starting with Java 9 this is easy to handle. When invoking the 'Articles' service via MicroProfile, you can use the method 'orTimeout'. If it comes to a timeout, an exception is thrown which you can handled via 'exceptionally' as explained in the last lab.
+Fortunately starting with Java 9 this is easy to handle. When invoking the 'Articles' service via MicroProfile, you can use the method 'orTimeout'. If it comes to a timeout, an exception is thrown which you can handled via 'exceptionally' as explained in the last exercise.
 
 ```
 public CompletionStage<List<Article>> getArticlesReactive(int amount) {
