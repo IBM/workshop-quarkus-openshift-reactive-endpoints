@@ -24,10 +24,10 @@
 
 ### YouTube Videos related to the Exercises
 
-* [Exercise 2 - Develop reactive Endpoints (optional)](https://suedbroecker.net/2020/06/10/develop-reactive-endpoints-with-quarkus/)
-* [Exercise 3 - Invoke Endpoints reactively (optional)](https://suedbroecker.net/2020/06/15/invoke-reactive-endpoints-with-quarkus/)
-* [Exercise 4 - Deploy Service to OpenShift (optional)](https://suedbroecker.net/2020/06/17/deploy-a-microservice-to-openshift/)
-* [Exercise 5 - Use distributed Logging (optional)](https://suedbroecker.net/2020/06/18/use-distributed-logging-for-mircoservices/)
+* [Exercise 1 - Develop reactive Endpoints (optional)](https://suedbroecker.net/2020/06/10/develop-reactive-endpoints-with-quarkus/)
+* [Exercise 2 - Invoke Endpoints reactively (optional)](https://suedbroecker.net/2020/06/15/invoke-reactive-endpoints-with-quarkus/)
+* [Exercise 3 - Deploy Service to OpenShift (optional)](https://suedbroecker.net/2020/06/17/deploy-a-microservice-to-openshift/)
+* [Exercise 4 - Use distributed Logging (optional)](https://suedbroecker.net/2020/06/18/use-distributed-logging-for-mircoservices/)
 
 ### Additional Resources
 
