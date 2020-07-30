@@ -65,13 +65,12 @@ These are the labs of this workshop, go through all of them in sequence, start w
 |   |   |
 | - | - |
 | [Pre work](pre-work/README.md) | Create your Cloud Environment |
-| [Exercise 1](exercise-01/README.md) | Deploy Kafka via Script |
-| [Exercise 2](exercise-02/README.md) | Deploy Postgres via Operator |
-| [Exercise 3](exercise-03/README.md) | Deploy Sample Application |
-| [Exercise 4](exercise-04/README.md) | Develop reactive Endpoints |
-| [Exercise 5](exercise-05/README.md) | Invoke Endpoints reactively |
-| [Exercise 6](exercise-06/README.md) | Deploy Service to OpenShift |
-| [Exercise 7](exercise-07/README.md) | Use distributed Logging |
+| [Exercise 1](exercise-01/README.md) | Deploy the example application via script |
+| [Exercise 2](exercise-02/README.md) | Develop reactive Endpoints |
+| [Exercise 3](exercise-03/README.md) | Invoke Endpoints reactively |
+| [Exercise 4](exercise-04/README.md) | Deploy Service to OpenShift |
+| [Exercise 5](exercise-05/README.md) | Use distributed Logging |
+
 
 ### Compatibility
 

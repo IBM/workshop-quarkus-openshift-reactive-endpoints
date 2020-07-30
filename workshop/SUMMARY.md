@@ -6,7 +6,7 @@
 
 ### Setup the IBM Cloud Environment
 
-* [Introduction](pre-work/README.md)
+* [Overview](pre-work/README.md)
 * [Access the Cluster](pre-work/CLOUD_ACCOUNT.md)
 * [Access IBM Cloud Shell](pre-work/CLOUD_SHELL.md)
 
