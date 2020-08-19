@@ -12,7 +12,7 @@ Let's start by creating a new Quarkus project with a synchronous REST endpoint. 
 
 ```
 cd ~/cloud-native-starter/reactive
-mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create \
+mvn io.quarkus:quarkus-maven-plugin:1.7.0.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=rest-json-quickstart \
     -DclassName="org.acme.rest.json.FruitResource" \
