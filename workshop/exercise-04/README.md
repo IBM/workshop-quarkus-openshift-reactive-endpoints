@@ -9,10 +9,10 @@ Once the service is running on Kubernetes or OpenShift, it can access other serv
 Re-create the class [ArticlesDataAccess.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticlesDataAccess.java).
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ rm ArticlesDataAccess.java
-$ touch ArticlesDataAccess.java
-$ nano ArticlesDataAccess.java
+cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
+rm ArticlesDataAccess.java
+touch ArticlesDataAccess.java
+nano ArticlesDataAccess.java
 ```
 
 ```

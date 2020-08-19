@@ -54,8 +54,8 @@ Click 'View LogDNA'.
 In Exercise 1 [Deploying Sample Application](../exercise-05/README.md) you have deployed an instance of the 'Articles' service called 'articles-reactive'. We will check LogDNA for output from this instance. Execute the following commands in the Cloud Shell:
 
 ```
-$ oc project cloud-native-starter
-$ watch curl -X GET "http://$(oc get route articles-reactive -o jsonpath={.spec.host})/v2/articles?amount=10" -H "accept: application/json"  
+oc project cloud-native-starter
+watch curl -X GET "http://$(oc get route articles-reactive -o jsonpath={.spec.host})/v2/articles?amount=10" -H "accept: application/json"  
 ```
    
 The "watch" command will constantly (every 2 seconds) request articles information.

@@ -11,8 +11,8 @@ You will extend the service from the previous exercise to invoke the 'Articles' 
 First the MicroProfile library needs to be added to the project.
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart
-$ ./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client"
+cd ~/cloud-native-starter/reactive/rest-json-quickstart
+./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client"
 ```
 
 ![](../../images/extension.png)
@@ -26,9 +26,9 @@ In order to map HTTP response codes to Java exceptions, a ResponseExceptionMappe
 Create the class [InvalidInputParameter.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/InvalidInputParameter.java). This exception is thrown by the 'Articles' service when the amount parameter is not correct, for example if the value is negative.
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ touch InvalidInputParameter.java
-$ nano InvalidInputParameter.java
+cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
+touch InvalidInputParameter.java
+nano InvalidInputParameter.java
 ```
 
 ```
@@ -53,9 +53,9 @@ Create the class [ExceptionMapperArticles.java](https://github.com/nheidloff/wor
 
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ touch ExceptionMapperArticles.java
-$ nano ExceptionMapperArticles.java
+cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
+touch ExceptionMapperArticles.java
+nano ExceptionMapperArticles.java
 ```
 
 ```
@@ -96,9 +96,9 @@ Note that the annotations @Get and @Produces can be confusing. These are the JAX
 Also note that the service does not return a Response object directly. Instead it returns a CompletionStage object with a Response object as described earlier. With the MicroProfile Rest Client you can invoke services both synchronously as well as asynchronously.
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ touch ArticlesService.java
-$ nano ArticlesService.java
+cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
+touch ArticlesService.java
+nano ArticlesService.java
 ```
 
 ```
@@ -129,9 +129,9 @@ Create the class [ArticlesDataAccess.java](https://github.com/nheidloff/workshop
 
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ touch ArticlesDataAccess.java
-$ nano ArticlesDataAccess.java
+cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
+touch ArticlesDataAccess.java
+nano ArticlesDataAccess.java
 ```
 
 ```
@@ -176,8 +176,8 @@ public class ArticlesDataAccess {
 In a second terminal run the following command to get the URL of your 'Articles' service.
 
 ```
-$ cd ~/cloud-native-starter/reactive
-$ os4-scripts/show-urls.sh
+cd ~/cloud-native-starter/reactive
+os4-scripts/show-urls.sh
 ```
 
 ![](../../images/get-url.png)
@@ -189,10 +189,10 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous exercise to invoke the actual service rather than returning a sample article.
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-$ rm ArticleResource.java
-$ touch ArticleResource.java
-$ nano ArticleResource.java
+cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
+rm ArticleResource.java
+touch ArticleResource.java
+nano ArticleResource.java
 ```
 
 ```
@@ -271,14 +271,14 @@ public class ArticleResource {
 In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart
-$ ./mvnw compile quarkus:dev
+cd ~/cloud-native-starter/reactive/rest-json-quickstart
+./mvnw compile quarkus:dev
 ```
 
 Open a second terminal in the Cloud Shell and invoke the following command.
 
 ```
-$ curl http://localhost:8080/articles
+curl http://localhost:8080/articles
 ```
 
 You should see the following response.

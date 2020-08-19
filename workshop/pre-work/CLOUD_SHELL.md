@@ -29,9 +29,9 @@ When using OpenShift locally, you need a local terminal and the following tools:
 In the IBM Cloud Shell execute the following command:
 
 ```
-$ git clone https://github.com/IBM/cloud-native-starter.git
-$ cd cloud-native-starter/reactive
-$ ROOT_FOLDER=$(pwd)  
+git clone https://github.com/IBM/cloud-native-starter.git
+cd cloud-native-starter/reactive
+ROOT_FOLDER=$(pwd)  
 ```
 
 ![](../../images/cloud-shell-clone.png)
@@ -63,7 +63,7 @@ Click on 'Display Token', then copy and paste the command 'Log in with this toke
 Login to OpenShift in IBM Cloud Shell
 
 ```
-$ oc login https://c1XX-XX-X.containers.cloud.ibm.com:XXXXX --token=xxxxxx'
+oc login https://c1XX-XX-X.containers.cloud.ibm.com:XXXXX --token=xxxxxx'
 ```
 
 ![](../../images/openshift-login3.png)
