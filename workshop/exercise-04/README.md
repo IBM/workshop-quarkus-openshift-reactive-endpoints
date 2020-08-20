@@ -60,12 +60,12 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 Invoke the following commands to build the image.
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/
-$ oc project cloud-native-starter
-$ mvn package
-$ mv src/main/docker/Dockerfile.jvm ./Dockerfile
-$ oc new-build --name my-web-api-reactive --binary --strategy docker 
-$ oc start-build my-web-api-reactive --from-dir=.
+cd ~/cloud-native-starter/reactive/rest-json-quickstart/
+oc project cloud-native-starter
+mvn package
+mv src/main/docker/Dockerfile.jvm ./Dockerfile
+oc new-build --name my-web-api-reactive --binary --strategy docker 
+oc start-build my-web-api-reactive --from-dir=.
 ```
 
 ![](../../images/deploy-my-web-api.png)
@@ -73,8 +73,8 @@ $ oc start-build my-web-api-reactive --from-dir=.
 The build will take some time. In the meantime you can check out the Dockerfile, for example to see how the ubi-minimal image is used.
 
 ```
-$ cd ~/cloud-native-starter/reactive/rest-json-quickstart/
-$ cat Dockerfile
+cd ~/cloud-native-starter/reactive/rest-json-quickstart/
+cat Dockerfile
 ```
 
 Open the OpenShift Web Console and wait for the build to be completed.
