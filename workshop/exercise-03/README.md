@@ -195,7 +195,7 @@ Copy and paste the `URL` in the class  `ArticlesDataAccess`you have open in your
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 6: Modify the [ArticleResource] class
+### Step 5: Modify the [ArticleResource] class
 
 In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous exercise to invoke the actual service rather than returning a sample article.
 
@@ -277,7 +277,7 @@ public class ArticleResource {
 }
 ```
 
-### Step 7: Test the Code
+### Step 6: Test the Code
 
 In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
 
@@ -296,7 +296,7 @@ You should see the following response.
 
 ![](../../images/result-articles.png)
 
-### Step 8: Understand Timeouts
+### Step 7: Understand Timeouts
 
 When writing asynchronous code it's important to consider timeouts, especially when you invoke third party services like databases or other microservices.
 
