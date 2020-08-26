@@ -23,7 +23,9 @@ The great thing about the MicroProfile REST Client is that it makes it really ea
 
 In order to map HTTP response codes to Java exceptions, a ResponseExceptionMapper is used. Let's take a look.
 
-Create the class [InvalidInputParameter.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/InvalidInputParameter.java). This exception is thrown by the 'Articles' service when the amount parameter is not correct, for example if the value is negative.
+* Create the class [InvalidInputParameter.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/InvalidInputParameter.java). 
+
+This exception is thrown by the 'Articles' service when the amount parameter is not correct, for example if the value is negative.
 
 ```
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
@@ -47,7 +49,7 @@ public class InvalidInputParameter extends RuntimeException {
 }
 ```
 
-Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
+* Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
 Create the class [ExceptionMapperArticles.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ExceptionMapperArticles.java). In this class the HTTP response code '204' is mapped to the InvalidInputParameter exception.
 
@@ -89,9 +91,9 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
 Next an interface of the service that is supposed to be invoked is defined. The implementation of this interface is provided magically by MicroProfile.
 
-Create the class [ArticlesService.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticlesService.java). To keep this as simple as possible, there is only one method to read a list of articles.
+* Create the class [ArticlesService.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticlesService.java). To keep this as simple as possible, there is only one method to read a list of articles.
 
-Note that the annotations @Get and @Produces can be confusing. These are the JAX-RS annotations you used in the previous exercise. This time however they are not used to expose REST APIs, but to define how to invoke remote APIs.
+Note that the annotations `@Get` and `@Produces` can be confusing. These are the JAX-RS annotations you used in the previous exercise. This time however they are not used to expose REST APIs, but to define how to invoke remote APIs.
 
 Also note that the service does not return a Response object directly. Instead it returns a CompletionStage object with a Response object as described earlier. With the MicroProfile Rest Client you can invoke services both synchronously as well as asynchronously.
 
@@ -173,7 +175,7 @@ public class ArticlesDataAccess {
 }
 ```
 
-In a second terminal run the following command to get the URL of your 'Articles' service.
+Open a `second terminal session` and run the following command to get the URL of your `'Articles'` service.
 
 ```
 cd ~/cloud-native-starter/reactive
@@ -182,9 +184,18 @@ os4-scripts/show-urls.sh
 
 ![](../../images/get-url.png)
 
-Copy and paste the URL in the editor as the value of the varialbe 'urlArticlesServiceOpenShift'.
+Copy and paste the `URL` in the class  `ArticlesDataAccess`you have open in your editor.
+ Replace the value for the variable 'urlArticlesServiceOpenShift' with your copied value.
+
+```java
+   ...
+   private static String urlArticlesServiceOpenShift = "YOUR-URL-VALUE";
+   ...
+```
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
+
+### Step 6: Modify the [ArticleResource] class
 
 In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous exercise to invoke the actual service rather than returning a sample article.
 
@@ -266,7 +277,7 @@ public class ArticleResource {
 }
 ```
 
-### Step 5: Test the Code
+### Step 7: Test the Code
 
 In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
 
@@ -285,13 +296,13 @@ You should see the following response.
 
 ![](../../images/result-articles.png)
 
-### Step 6: Understand Timeouts
+### Step 8: Understand Timeouts
 
 When writing asynchronous code it's important to consider timeouts, especially when you invoke third party services like databases or other microservices.
 
-Fortunately starting with Java 9 this is easy to handle. When invoking the 'Articles' service via MicroProfile, you can use the method 'orTimeout'. If it comes to a timeout, an exception is thrown which you can handled via 'exceptionally' as explained in the last exercise.
+Fortunately starting with Java 9 this is easy to handle. When invoking the `'Articles'` service via MicroProfile, you can use the method `'orTimeout'`. If it comes to a timeout, an exception is thrown which you can handled via `'exceptionally'` as explained in the last exercise.
 
-```
+```java
 public CompletionStage<List<Article>> getArticlesReactive(int amount) {
   return articlesService.getArticlesFromService(amount)
     .toCompletableFuture()
@@ -299,7 +310,7 @@ public CompletionStage<List<Article>> getArticlesReactive(int amount) {
 }
 ```
 
-The method 'orTimeout' doesn't exist in the CompletionStage interface. You need to run 'toCompletableFuture' first to get an instance of CompletableFuture.
+The method `'orTimeout'` doesn't exist in the CompletionStage interface. You need to run `'toCompletableFuture'` first to get an instance of CompletableFuture.
 
 Unfortunately this capability is only available in Java 9+. Since the current version of the Cloud Shell supports only Java 8, we cannot run it here. But you can obviously run it locally or in a container on OpenShift.
 
