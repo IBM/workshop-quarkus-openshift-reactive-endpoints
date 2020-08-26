@@ -195,7 +195,7 @@ Copy and paste the `URL` in the class  `ArticlesDataAccess`you have open in your
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 5: Modify the `ArticleResource class
+### Step 5: Modify the `ArticleResource` class
 
 In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous exercise to invoke the actual service rather than returning a sample article.
 
