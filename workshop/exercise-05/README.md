@@ -43,7 +43,7 @@ $ oc get all -n ibm-observe
 
 ### Step 3: Use LogDNA
 
-Go back to the [IBM Cloud dashboard](https://cloud.ibm.com/). Make sure you are using your own account. From the 'burger menu' in the upper left corner select 'Observability' and then 'Logging'.
+Go back to the [IBM Cloud dashboard](https://cloud.ibm.com/). Make sure you are using your own account. From the 'burger menu' in the upper left corner select `'Observability'` and then 'Logging'.
 
 ![](../../images/log7.png)
 
@@ -58,9 +58,9 @@ oc project cloud-native-starter
 watch curl -X GET "http://$(oc get route articles-reactive -o jsonpath={.spec.host})/v2/articles?amount=10" -H "accept: application/json"  
 ```
    
-The "watch" command will constantly (every 2 seconds) request articles information.
+The `"watch"` command will constantly (every 2 seconds) request articles information.
 
-Refresh your browser tab with the LogDNA dashboard and insert in the search field "getArticlesReactive".
+Refresh your browser tab with the LogDNA dashboard and insert in the search field `"getArticlesReactive"`.
 
 ![](../../images/log9.png)
 

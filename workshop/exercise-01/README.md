@@ -10,8 +10,11 @@ Invoke the following command:
 bash ~/cloud-native-starter/reactive/os4-scripts/deploy-example.sh 
 ```
 
-The deployment takes approximately `10 minutes` and the script shows the links to the Services and Web-App at the end of the execution.
-The 35 sec YouTube video shows the execution of the script and the test of the application.
+> The deployment takes approximately `10 minutes`.
+
+The script console output shows links to the Microservices and the Web-App at the end of the execution.
+
+The following `35 sec` YouTube video shows a example execution of the script and the test of the application.
 
 [![](https://img.youtube.com/vi/RYGCrsR37Go/0.jpg)](https://www.youtube.com/watch?v=RYGCrsR37Go "Click play on youtube")
 

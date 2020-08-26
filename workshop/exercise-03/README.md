@@ -184,8 +184,8 @@ os4-scripts/show-urls.sh
 
 ![](../../images/get-url.png)
 
-Copy and paste the `URL` in the class  `ArticlesDataAccess`you have open in your editor.
- Replace the value for the variable 'urlArticlesServiceOpenShift' with your copied value.
+Copy and paste the `URL` in the class  `ArticlesDataAccess` you have open in your editor.
+Replace the value for the variable `'urlArticlesServiceOpenShift'` with your copied value.
 
 ```java
    ...
