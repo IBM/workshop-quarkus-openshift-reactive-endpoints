@@ -10,7 +10,7 @@ The service that will be created is an easier implementation of the 'Web-API' se
 
 Let's start by creating a new Quarkus project with a synchronous REST endpoint. Invoke the following command the Cloud Shell.
 
-```
+```sh
 cd ~/cloud-native-starter/reactive
 mvn io.quarkus:quarkus-maven-plugin:1.7.0.Final:create \
     -DprojectGroupId=org.acme \
@@ -26,14 +26,14 @@ To better understand which files have been created, run the same command locally
 
 In order to test the synchronous endpoint which has been created with the command above, run these commands in one terminal in the Cloud Shell.
 
-```
+```sh
 cd ~/cloud-native-starter/reactive/rest-json-quickstart
 ./mvnw compile quarkus:dev
 ```
 
 Open a second terminal in the Cloud Shell and invoke the following command.
 
-```
+```sh
 curl http://localhost:8080/fruits
 ```
 
@@ -43,7 +43,7 @@ You should see the following response.
 
 The implementation of the synchronous endpoint is in the class [FruitResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/FruitResource.java). The annotations @Path, @Get and @Produces are used to define the endpoint via [JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services). To learn more about synchronous endpoints, check out the [Quarkus guide](https://quarkus.io/guides/rest-json).
 
-```
+```sh
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 cat FruitResource.java 
 ```
@@ -54,7 +54,7 @@ cat FruitResource.java
 
 Next let's create a reactive endpoint. We need a new class `'ArticleResource.java'` and a class `'Article.java'`.
 
-```
+```sh
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 touch Article.java 
 touch ArticleResource.java 
@@ -63,7 +63,7 @@ nano Article.java
 
 Add the following code to `'Article.java'`.
 
-```
+```java
 package org.acme.rest.json;
 
 public class Article {
@@ -81,12 +81,12 @@ Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
 Modify the ArticleResource class via nano and add the following skeleton. The complete source is in the [GitHub repo](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java).
 
-```
+```sh
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 nano ArticleResource.java
 ```
 
-```
+```java
 package org.acme.rest.json;
 
 import javax.ws.rs.GET;
@@ -182,7 +182,7 @@ Now the big question is: How does the reactive endpoint work??? Let's go through
 
 Reactive endpoints use the same JAX-RS annotations `'@Path'`, `'@Get'` and `'@Produces'` as synchronous endpoints.
 
-```
+```java
 @Path("/articles")
 public class ArticleResource {
     
@@ -199,7 +199,7 @@ To demonstrate this behavior better, a `[CompletableFuture](https://docs.oracle.
 
 The static method 'CompletableFuture.supplyAsync()'` returns a list of sample articles asynchronously for demo purposes. In this case only one sample article is returned.
 
-```
+```java
 public CompletionStage<Response> getArticles() {
         
         CompletableFuture<Response> future = new CompletableFuture<Response>();        
@@ -224,7 +224,7 @@ Another method of CompletionStage is `'thenApply'`. This method is invoked after
 
 The methods `'stream'` and `'map'` are only used for the conversion and not related to reactive programming.
 
-```
+```java
 public CompletionStage<Response> getArticles() {
         
         CompletableFuture<Response> future = new CompletableFuture<Response>();        
