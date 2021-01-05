@@ -4,48 +4,48 @@ In this exercise you will learn how to invoke REST APIs reactively with [MicroPr
 
 You will extend the service from the previous exercise to invoke the 'Articles' service which runs on OpenShift.
 
-![](../../images/lab6.png)
+![lab6](../../images/lab6.png)
 
-### Step 1: Add the MicroProfile Extension
+## Step 1: Add the MicroProfile Extension
 
 First the MicroProfile library needs to be added to the project.
 
-```
+```bash
 cd ~/cloud-native-starter/reactive/rest-json-quickstart
 ./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client"
 ```
 
-![](../../images/extension.png)
+![extension](../../images/extension.png)
 
-### Step 2: Create Exception Handling Classes
+## Step 2: Create Exception Handling Classes
 
 The great thing about the MicroProfile REST Client is that it makes it really easy to invoke remote APIs of other services. As developer you don't have to worry about serialization/deserialization/etc. All you need to do is to define interfaces and some configuration.
 
 In order to map HTTP response codes to Java exceptions, a ResponseExceptionMapper is used. Let's take a look.
 
-* Create the class [InvalidInputParameter.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/InvalidInputParameter.java). 
+* Create the class [InvalidInputParameter.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/InvalidInputParameter.java).
 
 This exception is thrown by the 'Articles' service when the amount parameter is not correct, for example if the value is negative.
 
-```
+```bash
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 touch InvalidInputParameter.java
 nano InvalidInputParameter.java
 ```
 
-```
+```java
 package org.acme.rest.json;
 
 public class InvalidInputParameter extends RuntimeException {
 
-	private static final long serialVersionUID = 2L;
+ private static final long serialVersionUID = 2L;
 
-	public InvalidInputParameter() {
-	}
+ public InvalidInputParameter() {
+ }
 
-	public InvalidInputParameter(String message) {
-		super(message);
-	}
+ public InvalidInputParameter(String message) {
+  super(message);
+ }
 }
 ```
 
@@ -53,14 +53,13 @@ public class InvalidInputParameter extends RuntimeException {
 
 Create the class [ExceptionMapperArticles.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ExceptionMapperArticles.java). In this class the HTTP response code '204' is mapped to the InvalidInputParameter exception.
 
-
-```
+```bash
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 touch ExceptionMapperArticles.java
 nano ExceptionMapperArticles.java
 ```
 
-```
+```java
 package org.acme.rest.json;
 
 import org.eclipse.microprofile.rest.client.ext.ResponseExceptionMapper;
@@ -87,7 +86,7 @@ public class ExceptionMapperArticles implements ResponseExceptionMapper<InvalidI
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 3: Create the ArticlesService Interface
+## Step 3: Create the ArticlesService Interface
 
 Next an interface of the service that is supposed to be invoked is defined. The implementation of this interface is provided magically by MicroProfile.
 
@@ -97,13 +96,13 @@ Note that the annotations `@Get` and `@Produces` can be confusing. These are the
 
 Also note that the service does not return a Response object directly. Instead it returns a CompletionStage object with a Response object as described earlier. With the MicroProfile Rest Client you can invoke services both synchronously as well as asynchronously.
 
-```
+```bash
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 touch ArticlesService.java
 nano ArticlesService.java
 ```
 
-```
+```java
 package org.acme.rest.json;
 
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
@@ -123,20 +122,19 @@ public interface ArticlesService {
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 4: Create the Code to invoke Services 
+## Step 4: Create the Code to invoke Services
 
 Now let's write the code to invoke the 'Articles' service. Basically all you need to do is to define the URL of the endpoint and invoke a Java method. Check out the code below, especially the invocation of the service via 'articlesService.getArticlesFromService(amount)'.
 
 Create the class [ArticlesDataAccess.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticlesDataAccess.java).
 
-
-```
+```bash
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 touch ArticlesDataAccess.java
 nano ArticlesDataAccess.java
 ```
 
-```
+```java
 package org.acme.rest.json;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -177,12 +175,12 @@ public class ArticlesDataAccess {
 
 Open a `second terminal session` and run the following command to get the URL of your `'Articles'` service.
 
-```
+```bash
 cd ~/cloud-native-starter/reactive
 os4-scripts/show-urls.sh
 ```
 
-![](../../images/get-url.png)
+![get-url](../../images/get-url.png)
 
 Copy and paste the `URL` in the class  `ArticlesDataAccess` you have open in your editor.
 Replace the value for the variable `'urlArticlesServiceOpenShift'` with your copied value.
@@ -195,18 +193,18 @@ Replace the value for the variable `'urlArticlesServiceOpenShift'` with your cop
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 5: Modify the `ArticleResource` class
+## Step 5: Modify the `ArticleResource` class
 
 In the last step you need to modify [ArticleResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/ArticleResource.java) from the previous exercise to invoke the actual service rather than returning a sample article.
 
-```
+```bash
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
 rm ArticleResource.java
 touch ArticleResource.java
 nano ArticleResource.java
 ```
 
-```
+```java
 package org.acme.rest.json;
 
 import javax.ws.rs.GET;
@@ -233,16 +231,16 @@ public class ArticleResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public CompletionStage<Response> getArticles() {
-        
-        CompletableFuture<Response> future = new CompletableFuture<Response>();        
+
+        CompletableFuture<Response> future = new CompletableFuture<Response>();
 
         articlesDataAccess.getArticlesReactive(10).thenApply(articles -> {
             JsonArray articlesAsJson;
             articlesAsJson = articles
                                 .stream()
                                 .map(article -> createJsonArticle(article))
-                                .collect(JsonCollectors.toJsonArray());            
-            
+                                .collect(JsonCollectors.toJsonArray());
+
             return Response.ok(articlesAsJson).build();
         }).exceptionally(throwable -> {
             if (throwable.getCause().toString().equals(InvalidInputParameter.class.getName()))
@@ -277,26 +275,26 @@ public class ArticleResource {
 }
 ```
 
-### Step 6: Test the Code
+## Step 6: Test the Code
 
 In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
 
-```
+```bash
 cd ~/cloud-native-starter/reactive/rest-json-quickstart
 ./mvnw compile quarkus:dev
 ```
 
 Open a second terminal in the Cloud Shell and invoke the following command.
 
-```
+```bash
 curl http://localhost:8080/articles
 ```
 
 You should see the following response.
 
-![](../../images/result-articles.png)
+![result-articles](../../images/result-articles.png)
 
-### Step 7: Understand Timeouts
+## Step 7: Understand Timeouts
 
 When writing asynchronous code it's important to consider timeouts, especially when you invoke third party services like databases or other microservices.
 
@@ -313,4 +311,3 @@ public CompletionStage<List<Article>> getArticlesReactive(int amount) {
 The method `'orTimeout'` doesn't exist in the CompletionStage interface. You need to run `'toCompletableFuture'` first to get an instance of CompletableFuture.
 
 Unfortunately this capability is only available in Java 9+. Since the current version of the Cloud Shell supports only Java 8, we cannot run it here. But you can obviously run it locally or in a container on OpenShift.
-

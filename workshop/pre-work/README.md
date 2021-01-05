@@ -5,4 +5,3 @@ The main instructions of this workshop assume that you will use Red Hat OpenShif
 To use OpenShift on IBM Cloud and LogDNA in exercise 4, an [IBM Cloud account](http://ibm.biz/nheidloff) is needed. It's free, doesn't expire and for the lite account no credit card is required.
 
 We will use preconfigured [OpenShift on IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster) clusters in this hands-on workshop.
-
