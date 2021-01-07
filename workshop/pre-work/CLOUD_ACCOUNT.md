@@ -2,7 +2,7 @@
 
 In this section, you will login to your own IBM Cloud account, and then get access to a IBM Cloud Lab account which contains pre-provisioned clusters. Each workshop attendee will be granted access to one cluster.
 
-### Step 1: Setting up your IBM Cloud ID
+## Step 1: Setting up your IBM Cloud ID
 
 * Log into IBM Cloud with an existing account: <https://cloud.ibm.com>
 
@@ -10,7 +10,7 @@ OR
 
 * Create your own: <http://ibm.biz/nheidloff>
 
-### Step 2: Accessing the Cluster
+## Step 2: Accessing the Cluster
 
 Instructors will provide a URL to a web app. Enter your IBMid (the email you used to sign up) and the workshop key (also provided by the instructor).
 
@@ -26,12 +26,12 @@ Back in IBM Cloud, refresh the [IBM Cloud Dashboard](https://cloud.ibm.com). If 
 
 Click on **Clusters** in the **Resource Summary** tile.
 
-![](../../images/cluster-dashboard.png)
+![cluster-dashboard](../../images/cluster-dashboard.png)
 
 Under **Clusters**, click on the cluster that has been assigned to you.
 
-![](../../images/cluster-overview.png)
+![cluster-overviewcluster-overview.png)
 
 Launch the **OpenShift web console** and have a look around! You can come back to this dashboard throughout your workshop.
 
-![](../../images/cluster-launch-console.png)
+![cluster-launch-console](../../images/cluster-launch-console.png)

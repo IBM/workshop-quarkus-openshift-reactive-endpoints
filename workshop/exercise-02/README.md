@@ -1,12 +1,12 @@
 # Exercise 1: Develop reactive Endpoints
 
-In this exercise you will learn how to develop reactive endpoints with standard Java functionality via [CompletionStage](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html) and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html). 
+In this exercise you will learn how to develop reactive endpoints with standard Java functionality via [CompletionStage](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html) and [CompletableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html).
 
 The service that will be created is an easier implementation of the 'Web-API' service as described earlier. In this exercise the service only returns some dummy data and doesn't invoke other services.
 
-![](../../images/lab5.png)
+![lab5.png)
 
-### Step 1: Create Quarkus Project
+## Step 1: Create Quarkus Project
 
 Let's start by creating a new Quarkus project with a synchronous REST endpoint. Invoke the following command the Cloud Shell.
 
@@ -22,7 +22,7 @@ mvn io.quarkus:quarkus-maven-plugin:1.7.0.Final:create \
 
 To better understand which files have been created, run the same command locally and explore the generated code via the editor of your choice.
 
-### Step 2: Test the synchronous Endpoint
+## Step 2: Test the synchronous Endpoint
 
 In order to test the synchronous endpoint which has been created with the command above, run these commands in one terminal in the Cloud Shell.
 
@@ -39,25 +39,25 @@ curl http://localhost:8080/fruits
 
 You should see the following response.
 
-![](../../images/new-project1.png)
+![new-project1](../../images/new-project1.png)
 
 The implementation of the synchronous endpoint is in the class [FruitResource.java](https://github.com/nheidloff/workshop-quarkus-openshift-reactive-endpoints/blob/master/finish/rest-json-quickstart/src/main/java/org/acme/rest/json/FruitResource.java). The annotations @Path, @Get and @Produces are used to define the endpoint via [JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services). To learn more about synchronous endpoints, check out the [Quarkus guide](https://quarkus.io/guides/rest-json).
 
 ```sh
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-cat FruitResource.java 
+cat FruitResource.java
 ```
 
-![](../../images/new-project2.png)
+![new-project2](../../images/new-project2.png)
 
-### Step 3: Create Classes Article and ArticleResource
+## Step 3: Create Classes Article and ArticleResource
 
 Next let's create a reactive endpoint. We need a new class `'ArticleResource.java'` and a class `'Article.java'`.
 
 ```sh
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/src/main/java/org/acme/rest/json/
-touch Article.java 
-touch ArticleResource.java 
+touch Article.java
+touch ArticleResource.java
 nano Article.java
 ```
 
@@ -75,7 +75,7 @@ public class Article {
 }
 ```
 
-![](../../images/reactive3.png)
+![reactive3](../../images/reactive3.png)
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
@@ -106,23 +106,23 @@ import java.util.ArrayList;
 
 @Path("/articles")
 public class ArticleResource {
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public CompletionStage<Response> getArticles() {
-        
-        CompletableFuture<Response> future = new CompletableFuture<Response>();        
+
+        CompletableFuture<Response> future = new CompletableFuture<Response>();
 
         CompletableFuture.supplyAsync(() -> {
-            List<Article> articles = getSampleArticles();            
+            List<Article> articles = getSampleArticles();
             return articles;
         }).thenApply(articles -> {
             JsonArray articlesAsJson;
             articlesAsJson = articles
                                 .stream()
                                 .map(article -> createJsonArticle(article))
-                                .collect(JsonCollectors.toJsonArray());                   
-            
+                                .collect(JsonCollectors.toJsonArray());
+
             return Response.ok(articlesAsJson).build();
         }).whenComplete((response, e) -> {
             future.complete(response);
@@ -153,28 +153,28 @@ public class ArticleResource {
 }
 ```
 
-![](../../images/reactive1.png)
+![reactive1](../../images/reactive1.png)
 
 Exit the Editor via 'Ctrl-X', 'y' and 'Enter'.
 
-### Step 4: Test the reactive Endpoint
+## Step 4: Test the reactive Endpoint
 
 In order to test the reactive endpoint, run these commands in one terminal in the Cloud Shell.
 
-```
+```bash
 cd ~/cloud-native-starter/reactive/rest-json-quickstart/
 ./mvnw compile quarkus:dev
 ```
 
 Open a second terminal in the Cloud Shell and invoke the following command.
 
-```
+```bash
 curl http://localhost:8080/articles
 ```
 
 You should see the following response.
 
-![](../../images/reactive2.png)
+![reactive2](../../images/reactive2.png)
 
 ### Step 5: Understand the basic Implementation
 
@@ -185,7 +185,7 @@ Reactive endpoints use the same JAX-RS annotations `'@Path'`, `'@Get'` and `'@Pr
 ```java
 @Path("/articles")
 public class ArticleResource {
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public CompletionStage<Response> getArticles() {
@@ -201,11 +201,11 @@ The static method 'CompletableFuture.supplyAsync()'` returns a list of sample ar
 
 ```java
 public CompletionStage<Response> getArticles() {
-        
-        CompletableFuture<Response> future = new CompletableFuture<Response>();        
+
+        CompletableFuture<Response> future = new CompletableFuture<Response>();
 
         CompletableFuture.supplyAsync(() -> {
-            List<Article> articles = getSampleArticles();            
+            List<Article> articles = getSampleArticles();
             return articles;
         }).thenApply(articles -> {
            ...
@@ -218,7 +218,7 @@ public CompletionStage<Response> getArticles() {
 
 The `CompletionStage` interface has several methods. Most of them return CompletionStages again. This allows chaining method invocations as done in the sample code. As input parameters functions are passed in via `[Java Lambda](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html)`.
 
-The method `'whenComplete'` is triggered after the asynchronous methods have been completed. 
+The method `'whenComplete'` is triggered after the asynchronous methods have been completed.
 
 Another method of CompletionStage is `'thenApply'`. This method is invoked after the previous asynchronous methods have been completed. The method can be used, for example, to convert data. In the sample code the list of articles is converted in two steps. First the list of article is converted into a JSON array and then the array is converted into a Response object.
 
@@ -226,19 +226,19 @@ The methods `'stream'` and `'map'` are only used for the conversion and not rela
 
 ```java
 public CompletionStage<Response> getArticles() {
-        
-        CompletableFuture<Response> future = new CompletableFuture<Response>();        
+
+        CompletableFuture<Response> future = new CompletableFuture<Response>();
 
         CompletableFuture.supplyAsync(() -> {
-            List<Article> articles = getSampleArticles();            
+            List<Article> articles = getSampleArticles();
             return articles;
         }).thenApply(articles -> {
             JsonArray articlesAsJson;
             articlesAsJson = articles
                                 .stream()
                                 .map(article -> createJsonArticle(article))
-                                .collect(JsonCollectors.toJsonArray());                   
-            
+                                .collect(JsonCollectors.toJsonArray());
+
             return Response.ok(articlesAsJson).build();
         }).whenComplete((response, e) -> {
             future.complete(response);
@@ -247,7 +247,7 @@ public CompletionStage<Response> getArticles() {
     }
 ```
 
-### Step 6: Understand Exception Handling
+## Step 6: Understand Exception Handling
 
 In the same way exceptions and errors can occur for synchronous code, they can happen for asychronous code as well.
 
@@ -257,14 +257,14 @@ The code below should give you an idea how to handle exceptions. To find out mor
 
 If you want to try out `'exceptionally'` uncomment the line where the InvalidInputParameter exception is thrown.
 
-```
+```java
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public CompletionStage<Response> getArticles() {
-        
-        CompletableFuture<Response> future = new CompletableFuture<Response>();        
+
+        CompletableFuture<Response> future = new CompletableFuture<Response>();
         CompletableFuture.supplyAsync(() -> {
-            List<Article> articles = getSampleArticles();            
+            List<Article> articles = getSampleArticles();
             return articles;
         }).thenApply(articles -> {
             JsonArray articlesAsJson;
@@ -272,9 +272,9 @@ If you want to try out `'exceptionally'` uncomment the line where the InvalidInp
                                 .stream()
                                 .map(article -> createJsonArticle(article))
                                 .collect(JsonCollectors.toJsonArray());
-            
+
             //if (true) throw new InvalidInputParameter();
-            
+
             return Response.ok(articlesAsJson).build();
         }).exceptionally(throwable -> {
             if (throwable.getCause().toString().equals(InvalidInputParameter.class.getName()))
@@ -286,4 +286,3 @@ If you want to try out `'exceptionally'` uncomment the line where the InvalidInp
         return future;
     }
 ```
-
