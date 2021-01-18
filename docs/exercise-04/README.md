@@ -68,7 +68,7 @@ oc new-build --name my-web-api-reactive --binary --strategy docker
 oc start-build my-web-api-reactive --from-dir=.
 ```
 
-![deploy-my-web-api](../../images/deploy-my-web-api.png)
+![deploy-my-web-api](../images/deploy-my-web-api.png)
 
 The build will take some time. In the meantime you can check out the Dockerfile, for example to see how the ubi-minimal image is used.
 
@@ -79,34 +79,34 @@ cat Dockerfile
 
 Open the OpenShift Web Console and wait for the build to be completed.
 
-![deploy2](../../images/deploy2.png)
+![deploy2](../images/deploy2.png)
 
 The output of the build will be a new image stream.
 
-![deploy3](../../images/deploy3.png)
+![deploy3](../images/deploy3.png)
 
 ## Step 3: Deploy and test the Image
 
 In the 'Developer' view, click on 'Add' and then 'Container Image'.
 
-![deploy4](../../images/deploy4.png)
+![deploy4](../images/deploy4.png)
 
 On the next page choose 'Image from internal registry' and define the project, stream name and tag.
 
-![deploy5](../../images/deploy5.png)
+![deploy5](../images/deploy5.png)
 
 Leave all other defaults including 'Create a route' and click 'Create'.
 
-![deploy6](../../images/deploy6.png)
+![deploy6](../images/deploy6.png)
 
 On the next page click on 'my-web-api-reactive'.
 
-![deploy7](../../images/deploy7.png)
+![deploy7](../images/deploy7.png)
 
 Wait until the pod is running. After this click on the route at the bottom.
 
-![deploy8](../../images/deploy8.png)
+![deploy8](../images/deploy8.png)
 
 This will display the home page of the generated service. To invoke your endpoint append 'articles' to the URL.
 
-![deploy9](../../images/deploy10.png)
+![deploy9](../images/deploy10.png)

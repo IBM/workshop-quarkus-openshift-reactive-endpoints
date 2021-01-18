@@ -4,7 +4,7 @@ In this exercise you will learn how to invoke REST APIs reactively with [MicroPr
 
 You will extend the service from the previous exercise to invoke the 'Articles' service which runs on OpenShift.
 
-![lab6](../../images/lab6.png)
+![lab6](../images/lab6.png)
 
 ## Step 1: Add the MicroProfile Extension
 
@@ -15,7 +15,7 @@ cd ~/cloud-native-starter/reactive/rest-json-quickstart
 ./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-rest-client"
 ```
 
-![extension](../../images/extension.png)
+![extension](../images/extension.png)
 
 ## Step 2: Create Exception Handling Classes
 
@@ -180,7 +180,7 @@ cd ~/cloud-native-starter/reactive
 os4-scripts/show-urls.sh
 ```
 
-![get-url](../../images/get-url.png)
+![get-url](../images/get-url.png)
 
 Copy and paste the `URL` in the class  `ArticlesDataAccess` you have open in your editor.
 Replace the value for the variable `'urlArticlesServiceOpenShift'` with your copied value.
@@ -292,7 +292,7 @@ curl http://localhost:8080/articles
 
 You should see the following response.
 
-![result-articles](../../images/result-articles.png)
+![result-articles](../images/result-articles.png)
 
 ## Step 7: Understand Timeouts
 

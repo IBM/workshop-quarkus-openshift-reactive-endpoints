@@ -25,11 +25,11 @@ The following architecture diagrams do explain the complete flow the sample appl
 * The 'API Client' invokes the 'Web-API' service which implements a backend-for-frontend pattern.
 * The 'Web-API' service invokes the two microservices 'Authors' and 'Articles'. The 'Articles' service reads data from Postgres.
 
-![Full Architecture](../images/architecture2.png)
+![Full Architecture](images/architecture2.png)
 
 Note that in this workshop you will deploy the full application as described in the previous diagram. But to simplify the workshop you'll re-implement a simpler version of the 'Web-API' service which only invokes the 'Articles' service.
 
-![Simplified Architecture](../images/architecture1.png)
+![Simplified Architecture](images/architecture1.png)
 
 ### Estimated time and level
 
