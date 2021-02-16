@@ -35,3 +35,7 @@
 * [Workshop: Reactive Messaging with Quarkus on OpenShift](https://github.com/IBM/workshop-quarkus-openshift-reactive-messaging)
 * [Cloud-Native-Starter project](https://github.com/IBM/cloud-native-starter)
 * [Cloud-Native-Starter project reactive](https://github.com/IBM/cloud-native-starter/tree/master/reactive)
+
+### Known Issues
+
+* [Quarkus needs Apache Maven 3.6.2+](known-issues/known-issues.md)

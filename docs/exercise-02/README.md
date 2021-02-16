@@ -10,6 +10,8 @@ The service that will be created is an easier implementation of the 'Web-API' se
 
 Let's start by creating a new Quarkus project with a synchronous REST endpoint. Invoke the following command the Cloud Shell.
 
+> See [Known Issues](../known-issues/known-issues.md) with Quarkus
+
 ```sh
 cd ~/cloud-native-starter/reactive
 mvn io.quarkus:quarkus-maven-plugin:1.7.0.Final:create \
