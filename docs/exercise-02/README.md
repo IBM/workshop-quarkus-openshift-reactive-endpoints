@@ -4,7 +4,7 @@ In this exercise you will learn how to develop reactive endpoints with standard 
 
 The service that will be created is an easier implementation of the 'Web-API' service as described earlier. In this exercise the service only returns some dummy data and doesn't invoke other services.
 
-![lab5.png)
+![](../images/lab5.png)
 
 ## Step 1: Create Quarkus Project
 
