@@ -12,7 +12,7 @@ Thanks to Sbusiso Mkhombe, because he pointed this out.
 
 ![](../images/i-quarkus-02.png)
 
-To run the development exercises, you need to setup following tools on your machine:
+To run the development exercises you need to setup following tools on your machine:
 
 * [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [curl](https://curl.haxx.se/download.html)
