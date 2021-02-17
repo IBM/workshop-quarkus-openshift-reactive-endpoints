@@ -15,7 +15,7 @@ Thanks to Sbusiso Mkhombe and Karim Deif, because they pointed this out and docu
 
 #### Setup Maven in the IBM Cloud Shell
 
-So in your `cloud-native-starter/reactive` directory perform the following tasks:
+So, in your `cloud-native-starter/reactive` directory you need to perform the following tasks:
 
 ##### Step 1: Change to your reactive directory in your cloud-native-starter project.
 
